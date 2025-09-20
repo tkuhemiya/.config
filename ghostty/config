@@ -1,0 +1,20 @@
+
+theme = Dracula 
+font-family = JetBrains Mono
+
+background = "000000"
+foreground = "FAE3C6"
+selection-background = "F564A9"
+selection-foreground = "FAE3C6"
+
+background-opacity = 0.8
+background-blur = 10
+unfocused-split-opacity = 0.4
+
+window-padding-x = 7,7
+window-padding-y = 5,7
+
+shell-integration = zsh
+scrollback-limit = 100000
+
+window-save-state = always

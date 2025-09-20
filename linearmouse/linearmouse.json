@@ -1,0 +1,42 @@
+{
+  "schemes" : [
+    {
+      "pointer" : {
+        "acceleration" : 0.8,
+        "disableAcceleration" : false,
+        "speed" : 0.099
+      },
+      "scrolling" : {
+        "acceleration" : {
+          "vertical" : 1
+        },
+        "reverse" : {
+          "vertical" : true
+        }
+      },
+      "if" : {
+        "device" : {
+          "productID" : "0xc077",
+          "category" : "mouse",
+          "vendorID" : "0x46d",
+          "productName" : "USB Optical Mouse"
+        }
+      }
+    },
+    {
+      "scrolling" : {
+        "acceleration" : {
+          "vertical" : 1
+        }
+      },
+      "if" : {
+        "device" : {
+          "productName" : "Apple Internal Keyboard \/ Trackpad",
+          "vendorID" : "0x0",
+          "productID" : "0x0",
+          "category" : "trackpad"
+        }
+      }
+    }
+  ]
+}
