@@ -4,7 +4,11 @@ export PATH="$HOME/go/bin:$PATH"
 
 export KEYTIMEOUT=1
 source <(fzf --zsh) 
+export MATLAB_JAVA=/Users/themiya/.sdkman/candidates/java/11.0.23-amzn
 eval "$(zoxide init zsh)"
+
+# Custom
+source ~/.config/zsh/utils/mvnHelp.zsh
 
 # ALias
 alias c='clear'
@@ -68,3 +72,7 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # TODO
 # uninstall p10k
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
