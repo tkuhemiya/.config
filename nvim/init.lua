@@ -1,5 +1,5 @@
-
-vim.cmd("colorscheme gotham")
+-- installed on runtime
+vim.cmd("colorscheme lucid")
 
 vim.o.number = true
 vim.o.relativenumber = true
@@ -16,9 +16,10 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 vim.o.smartindent = true
-vim.o.shiftround = true
-vim.o.shiftwidth = 0
-vim.o.tabstop = 2
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
 
 vim.o.undofile = true
 vim.o.undolevels = 30
