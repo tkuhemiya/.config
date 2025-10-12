@@ -37,10 +37,10 @@ vim.g.mapleader = " "
 local map = vim.keymap.set
 map('n', '<leader>w', '<Cmd>write<CR>')
 map('n', '<leader>q', '<Cmd>:quit<CR>')
-map('n', '<leader>o', '<Cmd>:Open .<CR>')
+map('n', '<leader>o', '<Cmd>:Oil .<CR>')
 map('n', '<leader>h', ':Pick help<CR>')
-map('n', '<leader>f', ':Pick files<CR>')
-map('n', '<leader>e', ':Oil<CR>')
+map('n', '<leader>f', ':Pick files tool="git"<CR>')
+map('n', 'Q', '@@')
 map({'n', 'v'}, '<leader>z', '1z=', { silent = true })
 map('n', 'U', '<C-r>')
 
@@ -49,4 +49,5 @@ map({ 'n', 'v', 'x' }, ';', ':')
 map({ 'n', 'v' }, '<leader>n', ':norm ')
 map({ 'n', 'v' }, '<leader>y', '"+y')
 map({ 'n', 'v' }, '<leader>p', '"+p')
+
 
