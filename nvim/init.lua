@@ -22,7 +22,7 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 
 vim.o.undofile = true
-vim.o.undolevels = 30
+vim.o.undolevels = 100
 vim.o.swapfile = false
 
 vim.pack.add({
@@ -31,7 +31,6 @@ vim.pack.add({
 })
 require "mini.pick".setup()
 require "oil".setup()
-
 
 vim.g.mapleader = " "
 local map = vim.keymap.set

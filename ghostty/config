@@ -1,4 +1,3 @@
-
 theme = Dracula 
 font-family = JetBrains Mono
 
@@ -18,3 +17,4 @@ shell-integration = zsh
 scrollback-limit = 100000
 
 window-save-state = always
+#custom-shader = ./ghostty-shaders/water.glsl
