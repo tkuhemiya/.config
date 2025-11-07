@@ -17,6 +17,7 @@ alias vs='code ./'
 alias vi='nvim'
 alias cd='z'
 alias ls='ls -G'
+alias l='ls -lGAhLS'
 
 # KeyBinds
 openHere() {

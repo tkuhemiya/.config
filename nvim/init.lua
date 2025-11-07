@@ -1,52 +1,44 @@
--- installed on runtime
-vim.cmd("colorscheme lucid")
+-- read
+-- https://github.com/nvim-telescope/telescope.nvim
+-- https://github.com/nvim-telescope/telescope-ui-select.nvim
+-- https://github.com/neovim/nvim-lspconfig
+-- https://github.com/mason-org/mason.nvim
+-- https://github.com/L3MON4D3/LuaSnip -- for snippets
+
+-- :tabnew, :tabclose, :tabnext -- for tabs
+
+vim.cmd("colorscheme lucid2")
 
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.cursorline = true
-
 vim.o.signcolumn = "yes"
-
 vim.o.pumheight = 10
 vim.o.winborder = "rounded"
-
 vim.o.list = true
-
 vim.o.ignorecase = true
 vim.o.smartcase = true
-
 vim.o.smartindent = true
+vim.o.undofile = true
+vim.o.undolevels = 100
+vim.o.swapfile = false
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 
-vim.o.undofile = true
-vim.o.undolevels = 100
-vim.o.swapfile = false
 
 vim.pack.add({
-	{src = "https://github.com/stevearc/oil.nvim"},
-	{src = "https://github.com/nvim-mini/mini.pick"},
+  { src = "https://github.com/nvim-mini/mini.pick" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter",        version = "main" },
+  { src = "https://github.com/nvim-lua/plenary.nvim" }, -- dependency
+  { src = "https://github.com/nvim-telescope/telescope.nvim" },
+  { src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
+  { src = "https://github.com/neovim/nvim-lspconfig" },
+  { src = "https://github.com/mason-org/mason.nvim" }
 })
-require "mini.pick".setup()
-require "oil".setup()
 
-vim.g.mapleader = " "
-local map = vim.keymap.set
-map('n', '<leader>w', '<Cmd>write<CR>')
-map('n', '<leader>q', '<Cmd>:quit<CR>')
-map('n', '<leader>o', '<Cmd>:Oil .<CR>')
-map('n', '<leader>h', ':Pick help<CR>')
-map('n', '<leader>f', ':Pick files tool="git"<CR>')
-map('n', 'Q', '@@')
-map({'n', 'v'}, '<leader>z', '1z=', { silent = true })
-map('n', 'U', '<C-r>')
+vim.lsp.enable({"lua_ls"})
 
-
-map({ 'n', 'v', 'x' }, ';', ':')
-map({ 'n', 'v' }, '<leader>n', ':norm ')
-map({ 'n', 'v' }, '<leader>y', '"+y')
-map({ 'n', 'v' }, '<leader>p', '"+p')
-
-
+require('plugin')
+require('keymap')

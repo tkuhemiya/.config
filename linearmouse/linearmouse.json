@@ -1,10 +1,51 @@
 {
   "schemes" : [
     {
+      "if" : {
+        "device" : {
+          "productName" : "USB Optical Mouse",
+          "vendorID" : "0x46d",
+          "category" : "mouse",
+          "productID" : "0xc077"
+        }
+      },
+      "scrolling" : {
+        "reverse" : {
+          "vertical" : true
+        },
+        "acceleration" : {
+          "vertical" : 1
+        }
+      },
       "pointer" : {
-        "acceleration" : 0.8,
         "disableAcceleration" : false,
+        "acceleration" : 0.8,
         "speed" : 0.099
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "category" : "trackpad",
+          "productID" : "0x0",
+          "vendorID" : "0x0",
+          "productName" : "Apple Internal Keyboard \/ Trackpad"
+        }
+      },
+      "scrolling" : {
+        "acceleration" : {
+          "vertical" : 1
+        }
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "vendorID" : "0x1ea7",
+          "productName" : "GO W603",
+          "productID" : "0x64",
+          "category" : "mouse"
+        }
       },
       "scrolling" : {
         "acceleration" : {
@@ -13,30 +54,8 @@
         "reverse" : {
           "vertical" : true
         }
-      },
-      "if" : {
-        "device" : {
-          "productID" : "0xc077",
-          "category" : "mouse",
-          "vendorID" : "0x46d",
-          "productName" : "USB Optical Mouse"
-        }
-      }
-    },
-    {
-      "scrolling" : {
-        "acceleration" : {
-          "vertical" : 1
-        }
-      },
-      "if" : {
-        "device" : {
-          "productName" : "Apple Internal Keyboard \/ Trackpad",
-          "vendorID" : "0x0",
-          "productID" : "0x0",
-          "category" : "trackpad"
-        }
       }
     }
-  ]
+  ],
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0"
 }

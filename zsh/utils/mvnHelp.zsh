@@ -17,4 +17,8 @@ mvnH() {
 
 }
 
-
+testHHHH() {
+  while getopts "m:d:" flag; do
+    echo "Flag: -$flag, OPTARG=$OPTARG, OPTIND=$OPTIND, OPTIND2=${!OPTIND}, ${!((OPTIND + 1))}  w"
+  done
+}
