@@ -1,9 +1,8 @@
--- read
+-- todo
 -- https://github.com/nvim-telescope/telescope.nvim
 -- https://github.com/nvim-telescope/telescope-ui-select.nvim
--- https://github.com/neovim/nvim-lspconfig
--- https://github.com/mason-org/mason.nvim
 -- https://github.com/L3MON4D3/LuaSnip -- for snippets
+-- https://cmp.saghen.dev/installation
 
 -- :tabnew, :tabclose, :tabnext -- for tabs
 
@@ -35,7 +34,8 @@ vim.pack.add({
   { src = "https://github.com/nvim-telescope/telescope.nvim" },
   { src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
   { src = "https://github.com/neovim/nvim-lspconfig" },
-  { src = "https://github.com/mason-org/mason.nvim" }
+  { src = "https://github.com/mason-org/mason.nvim" },
+  { src = "https://github.com/saghen/blink.cmp" }
 })
 
 vim.lsp.enable({"lua_ls"})

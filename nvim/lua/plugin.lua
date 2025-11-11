@@ -7,6 +7,7 @@ require "mason".setup({
 })
 
 
+
 local telescope = require "telescope"
 telescope.setup({
   defaults = {
@@ -34,3 +35,6 @@ telescope.setup({
 })
 telescope.load_extension("ui-select")
 
+require("blink.cmp").setup({
+
+})
