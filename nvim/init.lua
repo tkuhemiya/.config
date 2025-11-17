@@ -38,7 +38,7 @@ vim.pack.add({
   { src = "https://github.com/saghen/blink.cmp" }
 })
 
-vim.lsp.enable({"lua_ls"})
+vim.lsp.enable({ "lua_ls"})
 
 require('plugin')
 require('keymap')

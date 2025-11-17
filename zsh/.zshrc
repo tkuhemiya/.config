@@ -18,6 +18,8 @@ alias vi='nvim'
 alias cd='z'
 alias ls='ls -G'
 alias l='ls -lGAhLS'
+alias o='open'
+alias dk='docker'
 
 # KeyBinds
 openHere() {
