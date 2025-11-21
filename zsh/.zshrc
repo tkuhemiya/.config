@@ -29,6 +29,11 @@ openHere() {
 }
 zle -N openHere
 
+mkcd() {
+  mkdir $1
+  cd $1
+}
+
 bindkey '\eo' openHere
 
 # Prompt

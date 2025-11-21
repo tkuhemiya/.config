@@ -3,6 +3,7 @@ local map = vim.keymap.set
 vim.g.mapleader = " "
 
 map('n', '<leader>w', '<Cmd>write<CR>')
+map('i', 'jk', '')
 map('n', '<leader>q', '<Cmd>:quit<CR>')
 map('n', '<leader>op', '<Cmd>:!open ./<CR>')
 map('n', '<leader>h', ':Pick help<CR>')
