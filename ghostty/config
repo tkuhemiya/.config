@@ -23,5 +23,4 @@ scrollback-limit = 1000000
 
 window-save-state = always
 
-#custom-shader = ./ghostty-shaders/water.glsl
-
+#custom-shader = ./ghostty-shaders/slash.glsl
