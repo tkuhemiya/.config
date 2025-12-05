@@ -1,38 +1,52 @@
 
-[[ -f "/opt/homebrew/bin/brew" ]] && eval "$(/opt/homebrew/bin/brew shellenv)";
-export PATH="$HOME/go/bin:$PATH"
-export PATH=$PATH:~/Library/Android/sdk/platform-tools
-
 export KEYTIMEOUT=1
-source <(fzf --zsh) 
-export MATLAB_JAVA=/Users/themiya/.sdkman/candidates/java/11.0.23-amzn
 eval "$(zoxide init zsh)"
 
+# Modules
+zmodload zsh/complist
+autoload -U compinit && compinit
+autoload -U colors && colors
+
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # case insensitive
+zstyle ':completion:*' special-dirs false
+zstyle ':completion:*' squeeze-slashes false 
+
+source <(fzf --zsh) 
+
 # Custom
-source ~/.config/zsh/utils/mvnHelp.zsh
+source ~/.config/zsh/func.zsh
+openFinder() {
+  open ./
+}
+zle -N openFinder
+bindkey '^O' openFinder
 
 # ALias
+#alias bat='bat -p --theme TwoDark -l sh'
 alias c='clear'
 alias vs='code ./'
 alias vi='nvim'
 alias cd='z'
 alias ls='ls -G'
-alias l='ls -lGAhLS'
+alias l='ls -lAhG -S '
+alias cat='bat -pp'
 alias o='open'
 alias dk='docker'
-
-# KeyBinds
-openHere() {
-  zle -I
-  open ./
-  zle prompt
-}
-zle -N openHere
-
+alias tree="erd -C auto -I -H -s name -y inverted"
 mkcd() {
   mkdir $1
   cd $1
 }
+
+# History
+HISTSIZE=5000
+HISTFILE=~/.cache/zsh/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt HIST_IGNORE_DUPS
+setopt HIST_SAVE_NO_DUPS
+
 
 bindkey '\eo' openHere
 
@@ -47,35 +61,15 @@ export PROMPT='
 %F{255}%n%f%B% @ %f%b%F{255}%~%f %F{47}${vcs_info_msg_0_} 
 %F{255}$ %f'
 
-# Auto Complete
-zmodload zsh/complist
-autoload -U compinit && compinit
-autoload -U colors && colors
-
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # case insensitive
-zstyle ':completion:*' menu select
-zstyle ':completion:*' special-dirs false
-zstyle ':completion:*' squeeze-slashes false 
-
 export FZF_CTRL_T_OPTS="
   --walker-skip .git,node_modules,target,venv,__pycache__
   --preview '[[ -d {} ]] && { ls -p --color=always {} } || { [[ {} == *.png || {} == *.jpg || {} == *.jpeg ]] && { chafa --clear -f symbols --symbols all --view-size=50x {} } || bat -n --theme=Nord --color=always --line-range=:40 {} }'
   --preview-window=right:40%
 "
 
-# History
-HISTSIZE=5000
-HISTFILE=~/.cache/zsh/.zsh_history
-SAVEHIST=$HISTSIZE
-HISTDUP=erase
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+[[ -s "$XDG_DATA_HOME/sdkman/bin/sdkman-init.sh" ]] && source "$XDG_DATA_HOME/sdkman/bin/sdkman-init.sh"
 
 # syntax highlighting --should be last
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# Created by `pipx` on 2025-10-21 05:59:09
-export PATH="$PATH:/Users/themiya/.local/bin"
 

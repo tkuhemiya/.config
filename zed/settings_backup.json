@@ -1,0 +1,61 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "project_panel": {
+    "entry_spacing": "comfortable",
+    "dock": "left"
+  },
+  "terminal": {
+    "toolbar": {
+      "breadcrumbs": false
+    },
+    "max_scroll_history_lines": 10000
+  },
+  "git": {
+    "blame": {
+      "show_avatar": false
+    },
+    "inline_blame": {
+      "delay_ms": 100
+    },
+    "gutter_debounce": 0
+  },
+  "disable_ai": true,
+  "prettier": {
+    "allowed": false
+  },
+  "helix_mode": false,
+  "ui_font_family": "JetBrains Mono",
+  "buffer_font_family": "JetBrains Mono",
+  "ui_font_size": 16,
+  "buffer_font_size": 13,
+  "auto_update": false,
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "base_keymap": "VSCode",
+  "vim_mode": true,
+  "relative_line_numbers": true,
+  "icon_theme": "Colored Zed Icons Theme Light",
+  "theme": "Kanagawa Dragon",
+  "preview": {
+    "theme": "Kanagawa Dragon"
+  },
+  "cursor_blink": false,
+  "notification_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "project_panel": {
+    "dock": "right"
+  }
+}

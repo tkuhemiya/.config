@@ -1,0 +1,103 @@
+{
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "terminal": {
+    "toolbar": {
+      "breadcrumbs": false
+    },
+    "dock": "bottom",
+    "max_scroll_history_lines": 10000
+  },
+  "git": {
+    "blame": {
+      "show_avatar": false
+    },
+    "inline_blame": {
+      "delay_ms": 100
+    },
+    "gutter_debounce": 0
+  },
+  "disable_ai": true,
+  "prettier": {
+    "allowed": false
+  },
+  "helix_mode": false,
+  "ui_font_family": "JetBrains Mono",
+  "buffer_font_family": "JetBrains Mono",
+  "ui_font_size": 15,
+  "buffer_font_size": 16,
+  "auto_update": false,
+  "base_keymap": "VSCode",
+  "vim_mode": true,
+  "relative_line_numbers": "enabled",
+  "icon_theme": "Colored Zed Icons Theme Light",
+  "experimental.theme_overrides": {
+    "background.appearance": "blurred",
+    "background": "#00000040",
+    "editor.background": "#00000050",
+    "border": "#00000000",
+    "border.variant": "#00000000",
+    "editor.gutter.background": "#00000040",
+    "editor.active_line.background": "#00000060",
+    "title_bar.background": "#00000040",
+    "toolbar.background": "#00000040",
+    "terminal.background": "#00000040",
+    "status_bar.background": "#00000080",
+    "tab.active_background": "#00000060",
+    "tab.inactive_background": "#00000020",
+    "tab_bar.background": "#00000040",
+    "panel.background": "#00000080",
+    "scrollbar.track.border": "#00000000",
+    "scrollbar.track.background": "#00000000",
+    "scrollbar.thumb.background": "#ffffff20",
+    "scrollbar.thumb.active.background": "#ffffff40",
+  },
+  "theme": "Gruvbox Dark Hard",
+  "preview": {
+    "theme": "Kanagawa Dragon"
+  },
+  "cursor_blink": false,
+  "notification_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "project_panel": {
+    "entry_spacing": "comfortable",
+    "dock": "right"
+  },
+  "tabs": {
+    "close_position": "right",
+    "file_icons": true,
+    "git_status": true,
+    "show_close_button": "hover",
+    "show_diagnostics": "all"
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false,
+    "selections_menu": true,
+    "agent_review": true,
+    "code_actions": true
+  },
+  "status_bar": {
+    "active_language_button": false,
+    "cursor_position_button": false,
+    "line_endings_button": false
+  },
+  "format_on_save": "on",
+  "hover_popover_delay": 100,
+  "inlay_hints": {
+    "enabled": false,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true,
+    "show_background": false,
+    "edit_debounce_ms": 700,
+    "scroll_debounce_ms": 50,
+    "toggle_on_modifiers_press": null
+  }
+}

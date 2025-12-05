@@ -4,3 +4,9 @@ raycast/
 .zsh_history
 .zcompdump
 .zsh_sessions/
+.zcompcache/
+*.mdb
+swiftpm
+sdgp.sh
+docker
+.android
