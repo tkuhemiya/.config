@@ -37,6 +37,8 @@ export RIPGREP_CONFIG_PATH=$XDG_CONFIG_HOME/ripgrep/config
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export SDKMAN_DIR="$XDG_DATA_HOME/sdkman"
 export SQLITE_HISTORY=$XDG_STATE_HOME/sqlite_history
+export DOTNET_ROOT="/usr/local/share/dotnet/"
+export ANDROID_HOME=$HOME/Library/Android/sdk
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -44,4 +46,11 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [[ -f "/opt/homebrew/bin/brew" ]] && eval "$(/opt/homebrew/bin/brew shellenv)";
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$CARGO_HOME/bin/:$PATH"
+export PATH="/opt/homebrew/share/flutter/bin:$PATH"
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
 export MATLAB_JAVA=$XDG_DATA_HOME/sdkman/candidates/java/11.0.23-amzn
+
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

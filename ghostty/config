@@ -1,11 +1,14 @@
+
 theme = Dracula
-window-theme = system
 window-colorspace = display-p3
-font-family = JetBrains Mono
+#font-family = JetBrains Mono
+font-family = Osaka-Mono
 font-size = 15
 window-step-resize = true
 
 macos-titlebar-style = tabs
+#window-decoration = none
+window-show-tab-bar = auto
 macos-icon = paper
 
 background = "000000"
@@ -16,13 +19,18 @@ selection-clear-on-copy = false
 
 mouse-hide-while-typing = true
 
+#background-image = "~/Pictures/wallpaper/wallhaven-856dlk_1920x1080.png"
+background-image-position = center
+background-image-fit = cover
+background-image-opacity = 1
 background-opacity = 0.7
-background-opacity-cells = false
-background-blur = 15
-unfocused-split-opacity = 0.4
+#background-opacity-cells = true
+#background-opacity-cells = false
+#background-blur = 15
+#unfocused-split-opacity = 0.4
 
-window-padding-x = 7,7
-window-padding-y = 5,7
+window-padding-x = 7,0
+window-padding-y = 0,0
 
 shell-integration = zsh
 scrollback-limit = 1000000

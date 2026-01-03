@@ -4,8 +4,7 @@ eval "$(zoxide init zsh)"
 
 # Modules
 zmodload zsh/complist
-autoload -U compinit && compinit
-autoload -U colors && colors
+autoload -U compinit && compinit autoload -U colors && colors
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # case insensitive
@@ -13,6 +12,8 @@ zstyle ':completion:*' special-dirs false
 zstyle ':completion:*' squeeze-slashes false 
 
 source <(fzf --zsh) 
+source ~/.config/zsh/mvnv.zsh
+
 
 # Custom
 source ~/.config/zsh/func.zsh
@@ -24,16 +25,18 @@ bindkey '^O' openFinder
 
 # ALias
 #alias bat='bat -p --theme TwoDark -l sh'
+alias cd='z'
 alias c='clear'
 alias vs='code ./'
 alias vi='nvim'
-alias cd='z'
+alias vs='code ./'
 alias ls='ls -G'
 alias l='ls -lAhG -S '
 alias cat='bat -pp'
 alias o='open'
 alias dk='docker'
 alias tree="erd -C auto -I -H -s name -y inverted"
+alias lg='lazygit'
 mkcd() {
   mkdir $1
   cd $1
@@ -52,7 +55,8 @@ bindkey '\eo' openHere
 
 # Prompt
 autoload -Uz vcs_info
-zstyle ':vcs_info:git:*' formats '(%b%u)'
+#zstyle ':vcs_info:git:*' formats '(%b%u)'
+zstyle ':vcs_info:git*' formats "%F{green}%b%f %m%u%c %a "
 zstyle ':vcs_info:git:*' actionformats '(%b|%a)'
 precmd() { vcs_info }
 setopt PROMPT_SUBST
@@ -73,3 +77,6 @@ export FZF_CTRL_T_OPTS="
 # syntax highlighting --should be last
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+
+# bun completions
+[ -s "/Users/themiya/.bun/_bun" ] && source "/Users/themiya/.bun/_bun"

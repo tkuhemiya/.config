@@ -1,4 +1,12 @@
 {
+  "edit_predictions": {
+    "mode": "eager"
+  },
+  "agent": {
+    "play_sound_when_agent_done": true,
+    "always_allow_tool_actions": false,
+    "model_parameters": []
+  },
   "telemetry": {
     "diagnostics": false,
     "metrics": false
@@ -19,7 +27,7 @@
     },
     "gutter_debounce": 0
   },
-  "disable_ai": true,
+  "disable_ai": false,
   "prettier": {
     "allowed": false
   },
@@ -32,29 +40,29 @@
   "base_keymap": "VSCode",
   "vim_mode": true,
   "relative_line_numbers": "enabled",
-  "icon_theme": "Colored Zed Icons Theme Light",
-  "experimental.theme_overrides": {
-    "background.appearance": "blurred",
-    "background": "#00000040",
-    "editor.background": "#00000050",
-    "border": "#00000000",
-    "border.variant": "#00000000",
-    "editor.gutter.background": "#00000040",
-    "editor.active_line.background": "#00000060",
-    "title_bar.background": "#00000040",
-    "toolbar.background": "#00000040",
-    "terminal.background": "#00000040",
-    "status_bar.background": "#00000080",
-    "tab.active_background": "#00000060",
-    "tab.inactive_background": "#00000020",
-    "tab_bar.background": "#00000040",
-    "panel.background": "#00000080",
-    "scrollbar.track.border": "#00000000",
-    "scrollbar.track.background": "#00000000",
-    "scrollbar.thumb.background": "#ffffff20",
-    "scrollbar.thumb.active.background": "#ffffff40",
-  },
-  "theme": "Gruvbox Dark Hard",
+  "icon_theme": "JetBrains New UI Icons (Dark)",
+  // "experimental.theme_overrides": {
+  //   "background.appearance": "blurred",
+  //   "background": "#00000040",
+  //   "editor.background": "#000000A0",
+  //   "border": "#00000000",
+  //   "border.variant": "#00000000",
+  //   "editor.gutter.background": "#000000A0",
+  //   "editor.active_line.background": "#00000060",
+  //   "title_bar.background": "#00000040",
+  //   "toolbar.background": "#00000040",
+  //   "terminal.background": "#00000040",
+  //   "status_bar.background": "#00000080",
+  //   "tab.active_background": "#00000060",
+  //   "tab.inactive_background": "#00000020",
+  //   "tab_bar.background": "#00000040",
+  //   "panel.background": "#00000080",
+  //   "scrollbar.track.border": "#00000000",
+  //   "scrollbar.track.background": "#00000000",
+  //   "scrollbar.thumb.background": "#ffffff20",
+  //   "scrollbar.thumb.active.background": "#ffffff40",
+  // },
+  "theme": "Catppuccin Mocha",
   "preview": {
     "theme": "Kanagawa Dragon"
   },
@@ -99,5 +107,24 @@
     "edit_debounce_ms": 700,
     "scroll_debounce_ms": 50,
     "toggle_on_modifiers_press": null
+  },
+  "lsp": {
+    "jdtls": {
+      "settings": {
+        "java_home": "/Users/themiya/Library/Java/JavaVirtualMachines/openjdk-24.0.1/Contents/Home",
+        "lombok_support": false,
+        "jdk_auto_download": false,
+        // Controls when to check for updates for JDTLS, Lombok, and Debugger
+        // - "always" (default): Always check for and download the latest version
+        // - "once": Check for updates only if no local installation exists
+        // - "never": Never check for updates, only use existing local installations (errors if missing)
+        //
+        // Note: Invalid values will default to "always"
+        // If custom paths (below) are provided, check_updates is IGNORED for that component
+        "check_updates": "never",
+        // Use custom installations instead of managed downloads
+        // When these are set, the extension will not download or manage these components
+      }
+    }
   }
 }
