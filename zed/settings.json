@@ -1,4 +1,7 @@
 {
+  "buffer_line_height": "comfortable",
+  "spell_checker": true,
+  "show_wrap_guides": true,
   "edit_predictions": {
     "mode": "eager"
   },
@@ -27,7 +30,7 @@
     },
     "gutter_debounce": 0
   },
-  "disable_ai": false,
+  "disable_ai": true,
   "prettier": {
     "allowed": false
   },
@@ -35,7 +38,7 @@
   "ui_font_family": "JetBrains Mono",
   "buffer_font_family": "JetBrains Mono",
   "ui_font_size": 15,
-  "buffer_font_size": 16,
+  "buffer_font_size": 17.0,
   "auto_update": false,
   "base_keymap": "VSCode",
   "vim_mode": true,

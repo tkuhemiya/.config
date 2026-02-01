@@ -4,7 +4,7 @@ eval "$(zoxide init zsh)"
 
 # Modules
 zmodload zsh/complist
-autoload -U compinit && compinit autoload -U colors && colors
+#autoload -U compinit && compinit autoload -U colors && colors
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # case insensitive
