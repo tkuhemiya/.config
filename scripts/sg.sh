@@ -8,40 +8,30 @@
 # Optional parameters:
 # @raycast.icon 🤖
 # @raycast.packageName dev
-# @raycast.argument1 { "type": "text", "placeholder": "File path (optional)" }
+# @raycast.argument1 { "type": "text", "placeholder": "language", "optional": true }
 
 # Documentation:
 # @raycast.description search github
 # @raycast.author themiya
 
-
-file_path="$1"
+input_lang="$1"
 query=$(pbpaste | sed 's/ /+/g')
 
-language=""
-if [ -n "$file_path" ]; then
-    ext="${file_path##*.}"
-    case "$ext" in
-        py) language="Python" ;;
-        js) language="JavaScript" ;;
-        ts) language="TypeScript" ;;
-        java) language="Java" ;;
-        cpp|cxx|cc) language="C++" ;;
-        c) language="C" ;;
-        go) language="Go" ;;
-        dart) language="Dart" ;;
-        html) language="HTML" ;;
-        css) language="CSS" ;;
-        *) language="" ;;
-    esac
-fi
+case "$input_lang" in
+    py) language="Python" ;;
+    js) language="JavaScript" ;;
+    ts) language="TypeScript" ;;
+    *) language="$input_lang" ;;
+esac
 
 if [ -n "$language" ]; then
-    url="https://github.com/search?q=$query+language%3A$language&type=code"
+    url="https://github.com/search?q=${query}+language:${language}&type=code"
 else
-    url="https://github.com/search?q=$query&type=code"
+    url="https://github.com/search?q=${query}&type=code"
 fi
 
 open "$url"
+echo "Searching GitHub for: $query"
 
-echo "$front_app : $query 🤓"
+language="$1"
+query=$(pbpaste | sed 's/ /+/g')
