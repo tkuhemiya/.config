@@ -38,6 +38,11 @@ require('mini.diff').setup()
 -- :h MiniDiff-hunk-specification
 -- :h MiniDiff-diff-summary
 
+-- Setup icons first so other modules can use them
+require('mini.icons').setup({
+    style = 'glyph',
+})
+
 require('mini.files').setup({
     content = {
         filter = function(entry)
@@ -59,8 +64,17 @@ require('mini.files').setup({
 })
 
 require('mini.pick').setup()
---require('mini.icons').setup()
---require('mini.tabline').setup({})
 
 --require('mini.cursorword').setup()
 --require('mini.operators').setup()
+
+local status, ts = pcall(require, 'nvim-treesitter.configs')
+if status then
+    ts.setup({
+        ensure_installed = { "go", "gomod", "gowork", "gosum", "lua", "typescript", "javascript" },
+        highlight = {
+            enable = true,
+            additional_vim_regex_highlighting = false,
+        },
+    })
+end

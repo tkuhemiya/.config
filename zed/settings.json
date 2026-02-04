@@ -32,7 +32,7 @@
   },
   "disable_ai": true,
   "prettier": {
-    "allowed": false
+    "allowed": true
   },
   "helix_mode": false,
   "ui_font_family": "JetBrains Mono",

@@ -28,7 +28,7 @@ bindkey '^O' openFinder
 alias cd='z'
 alias c='clear'
 alias vs='code ./'
-alias vi='nvim'
+alias vi='nvim .'
 alias vs='code ./'
 alias ls='ls -G'
 alias l='ls -lAhG -S '
