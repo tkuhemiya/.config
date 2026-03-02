@@ -84,12 +84,14 @@ map("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
 map("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
 
 -- Go auto-format and organize imports
+local go_format_group = augroup('GoFormatOnSave', { clear = true })
 autocmd("BufWritePre", {
+  group = go_format_group,
   pattern = "*.go",
   callback = function()
     local params = vim.lsp.util.make_range_params()
     params.context = {only = {"source.organizeImports"}}
-    local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
+    local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 1000)
     for cid, res in pairs(result or {}) do
       for _, r in pairs(res.result or {}) do
         if r.edit then

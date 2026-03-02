@@ -1,7 +1,7 @@
 require('mini.completion').setup({
     delay = { completion = 10, info = 100, signature = 10 },
     mappings = {
-        force_twopt = '<C-Space>',
+        force_twostep = '<C-Space>',
     },
     
     window = {
@@ -16,10 +16,6 @@ require('mini.completion').setup({
 })
 
 local keymap = vim.keymap.set
-local check_backspace = function()
-  local col = vim.fn.col('.') - 1
-  return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s')
-end
 keymap('i', '<Tab>', [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { expr = true })
 keymap('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
 keymap('i', '<CR>', [[pumvisible() ? "\<C-y>" : "\<CR>"]], { expr = true })
@@ -43,6 +39,36 @@ require('mini.icons').setup({
     style = 'glyph',
 })
 
+require('flash').setup()
+
+require('snacks').setup({
+    indent = {
+        enabled = true,
+        animate = {
+            enabled = true,
+            style = "out",
+            duration = {
+                step = 16,
+                total = 220,
+            },
+        },
+        scope = {
+            enabled = true,
+        },
+        chunk = {
+            enabled = false,
+        },
+    },
+    statuscolumn = {
+        enabled = true,
+    },
+    words = {
+        enabled = false,
+        debounce = 180,
+        notify_end = false,
+    },
+})
+
 require('mini.files').setup({
     content = {
         filter = function(entry)
@@ -63,7 +89,34 @@ require('mini.files').setup({
     },
 })
 
-require('mini.pick').setup()
+require('telescope').setup({
+    defaults = {
+        layout_strategy = 'horizontal',
+        layout_config = {
+            horizontal = {
+                preview_width = 0.5,
+            },
+        },
+        vimgrep_arguments = {
+            'rg',
+            '--color=never',
+            '--no-heading',
+            '--with-filename',
+            '--line-number',
+            '--column',
+            '--smart-case',
+            '--hidden',
+            '--glob', '!.git/*',
+        },
+        file_ignore_patterns = { 'node_modules/' },
+        preview = {
+            enable = true,
+            timeout = 100,
+            filesize_limit = 1,
+            treesitter = true,
+        },
+    },
+})
 
 --require('mini.cursorword').setup()
 --require('mini.operators').setup()
@@ -71,7 +124,8 @@ require('mini.pick').setup()
 local status, ts = pcall(require, 'nvim-treesitter.configs')
 if status then
     ts.setup({
-        ensure_installed = { "go", "gomod", "gowork", "gosum", "lua", "typescript", "javascript" },
+        ensure_installed = { "go", "gomod", "gowork", "gosum", "lua", "typescript", "javascript", "rust" },
+        auto_install = true,
         highlight = {
             enable = true,
             additional_vim_regex_highlighting = false,

@@ -11,7 +11,7 @@ const float FADE_ENABLED = 0.0; // 1.0 to enable fade gradient along the trail, 
 const float FADE_EXPONENT = 5.0; // exponent for fade gradient along the trail
 
 // --- CONSTANTS for easing functions ---
-const float PI = 3.#14159265359;
+const float PI = 3.14159265359;
 const float C1_BACK = 1.70158;
 const float C2_BACK = C1_BACK * 1.525;
 const float C3_BACK = C1_BACK + 1.0;

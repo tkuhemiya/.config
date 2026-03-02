@@ -9,7 +9,7 @@ local function animate_header_colors()
         '#9999FF', '#B399FF', '#CC99FF', '#E699FF',
         '#FF99FF', '#FF99E6', '#FF99CC', '#FF99B3'
     }
-    local timer = vim.loop.new_timer()
+    local timer = vim.uv.new_timer()
     local idx = 1
 
     timer:start(0, 400, vim.schedule_wrap(function()

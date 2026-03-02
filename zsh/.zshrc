@@ -12,7 +12,6 @@ zstyle ':completion:*' special-dirs false
 zstyle ':completion:*' squeeze-slashes false 
 
 source <(fzf --zsh) 
-source ~/.config/zsh/mvnv.zsh
 
 
 # Custom
@@ -56,14 +55,12 @@ bindkey '\eo' openHere
 # Prompt
 autoload -Uz vcs_info
 #zstyle ':vcs_info:git:*' formats '(%b%u)'
-zstyle ':vcs_info:git*' formats "%F{green}%b%f %m%u%c %a "
-zstyle ':vcs_info:git:*' actionformats '(%b|%a)'
+zstyle ':vcs_info:git*' formats "git:(%F{red}%b%F{blue})%f "
+zstyle ':vcs_info:git:*' actionformats "git:(%F{red}%b%F{blue}|%a)%f "
 precmd() { vcs_info }
 setopt PROMPT_SUBST
 
-export PROMPT='
-%F{255}%n%f%B% @ %f%b%F{255}%~%f %F{47}${vcs_info_msg_0_} 
-%F{255}$ %f'
+export PROMPT='%(?:%F{green}➜ %f:%F{red}➜ %f) %F{cyan}%c%f %F{blue}${vcs_info_msg_0_}%f'
 
 export FZF_CTRL_T_OPTS="
   --walker-skip .git,node_modules,target,venv,__pycache__
@@ -80,3 +77,5 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # bun completions
 [ -s "/Users/themiya/.bun/_bun" ] && source "/Users/themiya/.bun/_bun"
+
+. "$HOME/.turso/env"

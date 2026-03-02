@@ -1,4 +1,5 @@
 {
+  "show_edit_predictions": true,
   "buffer_line_height": "comfortable",
   "spell_checker": true,
   "show_wrap_guides": true,
@@ -44,28 +45,28 @@
   "vim_mode": true,
   "relative_line_numbers": "enabled",
   "icon_theme": "JetBrains New UI Icons (Dark)",
-  // "experimental.theme_overrides": {
-  //   "background.appearance": "blurred",
-  //   "background": "#00000040",
-  //   "editor.background": "#000000A0",
-  //   "border": "#00000000",
-  //   "border.variant": "#00000000",
-  //   "editor.gutter.background": "#000000A0",
-  //   "editor.active_line.background": "#00000060",
-  //   "title_bar.background": "#00000040",
-  //   "toolbar.background": "#00000040",
-  //   "terminal.background": "#00000040",
-  //   "status_bar.background": "#00000080",
-  //   "tab.active_background": "#00000060",
-  //   "tab.inactive_background": "#00000020",
-  //   "tab_bar.background": "#00000040",
-  //   "panel.background": "#00000080",
-  //   "scrollbar.track.border": "#00000000",
-  //   "scrollbar.track.background": "#00000000",
-  //   "scrollbar.thumb.background": "#ffffff20",
-  //   "scrollbar.thumb.active.background": "#ffffff40",
-  // },
-  "theme": "Catppuccin Mocha",
+  "theme": "Catppuccin Mocha - No Italics",
+  "experimental.theme_overrides": {
+    // "background.appearance": "blurred",
+    "background": "#00000040"
+    //   "editor.background": "#000000A0",
+    //   "border": "#00000000",
+    //   "border.variant": "#00000000",
+    //   "editor.gutter.background": "#000000A0",
+    //   "editor.active_line.background": "#00000060",
+    //   "title_bar.background": "#00000040",
+    //   "toolbar.background": "#00000040",
+    //   "terminal.background": "#00000040",
+    //   "status_bar.background": "#00000080",
+    //   "tab.active_background": "#00000060",
+    //   "tab.inactive_background": "#00000020",
+    //   "tab_bar.background": "#00000040",
+    //   "panel.background": "#00000080",
+    //   "scrollbar.track.border": "#00000000",
+    //   "scrollbar.track.background": "#00000000",
+    //   "scrollbar.thumb.background": "#ffffff20",
+    //   "scrollbar.thumb.active.background": "#ffffff40",
+  },
   "preview": {
     "theme": "Kanagawa Dragon"
   },
@@ -124,7 +125,7 @@
         //
         // Note: Invalid values will default to "always"
         // If custom paths (below) are provided, check_updates is IGNORED for that component
-        "check_updates": "never",
+        "check_updates": "never"
         // Use custom installations instead of managed downloads
         // When these are set, the extension will not download or manage these components
       }

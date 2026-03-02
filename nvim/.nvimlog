@@ -1,0 +1,15 @@
+WRN 2026-02-27T06:13:29.877 ?.9629     server_start:197: Failed to start server: operation not permitted: /var/folders/2g/_hj_zxq10357lv3ldvc_t28c0000gn/T/nvim.themiya/t3SKWX/nvim.9629.0
+WRN 2026-02-27T06:14:23.974 ?.9991     server_start:197: Failed to start server: operation not permitted: /var/folders/2g/_hj_zxq10357lv3ldvc_t28c0000gn/T/nvim.themiya/amToOZ/nvim.9991.0
+WRN 2026-02-27T06:14:28.911 ?.10020    server_start:197: Failed to start server: operation not permitted: /var/folders/2g/_hj_zxq10357lv3ldvc_t28c0000gn/T/nvim.themiya/hkpOGF/nvim.10020.0
+WRN 2026-03-02T17:03:09.863 ?.48546    server_start:197: Failed to start server: operation not permitted: /var/folders/2g/_hj_zxq10357lv3ldvc_t28c0000gn/T/nvim.themiya/BOC5qG/nvim.48546.0
+WRN 2026-03-02T17:03:09.949 ?.48547    server_start:197: Failed to start server: operation not permitted: /var/folders/2g/_hj_zxq10357lv3ldvc_t28c0000gn/T/nvim.themiya/n5hWtk/nvim.48547.0
+WRN 2026-03-02T17:03:10.033 ?.48548    server_start:197: Failed to start server: operation not permitted: /var/folders/2g/_hj_zxq10357lv3ldvc_t28c0000gn/T/nvim.themiya/ejMJm1/nvim.48548.0
+WRN 2026-03-02T17:03:10.117 ?.48549    server_start:197: Failed to start server: operation not permitted: /var/folders/2g/_hj_zxq10357lv3ldvc_t28c0000gn/T/nvim.themiya/MOGteA/nvim.48549.0
+WRN 2026-03-02T17:03:10.202 ?.48550    server_start:197: Failed to start server: operation not permitted: /var/folders/2g/_hj_zxq10357lv3ldvc_t28c0000gn/T/nvim.themiya/mS9S2W/nvim.48550.0
+WRN 2026-03-02T17:03:10.287 ?.48551    server_start:197: Failed to start server: operation not permitted: /var/folders/2g/_hj_zxq10357lv3ldvc_t28c0000gn/T/nvim.themiya/IQHrr6/nvim.48551.0
+WRN 2026-03-02T17:03:10.375 ?.48552    server_start:197: Failed to start server: operation not permitted: /var/folders/2g/_hj_zxq10357lv3ldvc_t28c0000gn/T/nvim.themiya/2FsltH/nvim.48552.0
+WRN 2026-03-02T17:03:10.462 ?.48553    server_start:197: Failed to start server: operation not permitted: /var/folders/2g/_hj_zxq10357lv3ldvc_t28c0000gn/T/nvim.themiya/hR87Zv/nvim.48553.0
+WRN 2026-03-02T17:03:10.546 ?.48554    server_start:197: Failed to start server: operation not permitted: /var/folders/2g/_hj_zxq10357lv3ldvc_t28c0000gn/T/nvim.themiya/ttukSQ/nvim.48554.0
+WRN 2026-03-02T17:03:10.632 ?.48555    server_start:197: Failed to start server: operation not permitted: /var/folders/2g/_hj_zxq10357lv3ldvc_t28c0000gn/T/nvim.themiya/4Nr3A8/nvim.48555.0
+WRN 2026-03-02T17:03:10.718 ?.48556    server_start:197: Failed to start server: operation not permitted: /var/folders/2g/_hj_zxq10357lv3ldvc_t28c0000gn/T/nvim.themiya/l6pRiQ/nvim.48556.0
+WRN 2026-03-02T17:03:10.805 ?.48557    server_start:197: Failed to start server: operation not permitted: /var/folders/2g/_hj_zxq10357lv3ldvc_t28c0000gn/T/nvim.themiya/mNVTAO/nvim.48557.0

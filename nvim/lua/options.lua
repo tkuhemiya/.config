@@ -4,7 +4,7 @@ vim.opt.cursorline = true
 vim.opt.signcolumn = "yes"
 vim.opt.pumheight = 10
 vim.opt.winborder = "rounded"
-vim.opt.list = true
+vim.opt.list = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.smartindent = true
@@ -16,7 +16,14 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.scrolloff = 8
-vim.opt.completeopt = { "menuone", "popup", "noinsert" }
+vim.opt.completeopt = { "menuone", "popup", "nearest", "noinsert" }
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.updatetime = 200
+vim.opt.timeoutlen = 300
+vim.opt.inccommand = "split"
+vim.opt.pummaxwidth = 80
+vim.opt.pumborder = "rounded"
+vim.opt.diffopt:append({ "inline:char", "indent-heuristic" })
 
 vim.opt.termguicolors = true
-vim.opt.expandtab = true
