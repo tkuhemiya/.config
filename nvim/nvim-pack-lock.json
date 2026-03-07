@@ -60,6 +60,10 @@
       "rev": "b4da76be54691e854d3e0e02c36b0245f945c2c7",
       "src": "https://github.com/nvim-telescope/telescope.nvim"
     },
+    "vague.nvim": {
+      "rev": "2baf167930cf2fa9c6aa7de08a4522e9fb527b33",
+      "src": "https://github.com/vague-theme/vague.nvim"
+    },
     "vim": {
       "rev": "d4b0823100c702af127cba8dd5595a8f599041ec",
       "src": "https://github.com/dracula/vim"
