@@ -29,6 +29,6 @@ require("vague").setup({
   italic = true,
 })
 vim.cmd.colorscheme "vague"
-vim.o.laststatus = 0
 vim.o.cmdheight = 0
+vim.o.laststatus = 3
 require('starter')

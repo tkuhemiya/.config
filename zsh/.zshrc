@@ -24,6 +24,7 @@ bindkey '^O' openFinder
 
 # ALias
 #alias bat='bat -p --theme TwoDark -l sh'
+alias lvim='NVIM_APPNAME=lvim nvim'
 alias cd='z'
 alias c='clear'
 alias vs='code ./'

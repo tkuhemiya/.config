@@ -18,6 +18,10 @@ adjust-cursor-thickness = 175%
 #adjust-cell-width = -4%
 adjust-cell-height = 17%
 
+macos-titlebar-style = tabs
+
+title = " "
+
 #background-image = "~/Pictures/wallpaper/wallhaven-856dlk_1920x1080.png"
 background-image-position = center
 background-image-fit = cover
@@ -28,18 +32,15 @@ background-blur = 20
 unfocused-split-opacity = 0.4
 #custom-shader = ./ghostty-shaders/slash.glsl
 
-window-decoration = none
-
 macos-option-as-alt = true
-#keybind = ctrl+h=goto_split:left
-#keybind = ctrl+j=goto_split:bottom
-#keybind = ctrl+k=goto_split:top
-#keybind = ctrl+l=goto_split:right
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+j=goto_split:bottom
+keybind = ctrl+k=goto_split:top
+keybind = ctrl+l=goto_split:right
 
-#keybind = ctrl+space>h=new_split:left
-#keybind = ctrl+space>j=new_split:down
-#keybind = ctrl+space>k=new_split:up
-#keybind = ctrl+space>l=new_split:right
-#keybind = ctrl+space>f=toggle_split_zoom
+keybind = ctrl+a>h=new_split:left
+keybind = ctrl+a>j=new_split:down
+keybind = ctrl+a>k=new_split:up
+keybind = ctrl+a>l=new_split:right
 
-#keybind = super+r=reload_config
+keybind = super+r=reload_config
