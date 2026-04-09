@@ -33,7 +33,7 @@ export PYENV_ROOT=$XDG_DATA_HOME/pyenv
 export PYTHON_HISTORY=$XDG_STATE_HOME/python_history
 export PYTHONPYCACHEPREFIX=$XDG_CACHE_HOME/python
 export PYTHONUSERBASE=$XDG_DATA_HOME/python
-export RIPGREP_CONFIG_PATH=$XDG_CONFIG_HOME/ripgrep/config
+#export RIPGREP_CONFIG_PATH=$XDG_CONFIG_HOME/ripgrep/config
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export SDKMAN_DIR="$XDG_DATA_HOME/sdkman"
 export SQLITE_HISTORY=$XDG_STATE_HOME/sqlite_history
@@ -41,6 +41,8 @@ export DOTNET_ROOT="/usr/local/share/dotnet/"
 export ANDROID_HOME=$HOME/Library/Android/sdk
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+export VIMRUNTIME=/opt/homebrew/Cellar/neovim/0.12.0/share/nvim/runtime
 
 
 [[ -f "/opt/homebrew/bin/brew" ]] && eval "$(/opt/homebrew/bin/brew shellenv)";
@@ -54,3 +56,6 @@ export MATLAB_JAVA=$XDG_DATA_HOME/sdkman/candidates/java/11.0.23-amzn
 
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"

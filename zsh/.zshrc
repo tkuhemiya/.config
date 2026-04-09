@@ -80,3 +80,6 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -s "/Users/themiya/.bun/_bun" ] && source "/Users/themiya/.bun/_bun"
 
 . "$HOME/.turso/env"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
