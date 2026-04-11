@@ -154,7 +154,7 @@ require('telescope').setup({
 local status, ts = pcall(require, 'nvim-treesitter.configs')
 if status then
     ts.setup({
-        ensure_installed = { "go", "gomod", "gowork", "gosum", "lua", "typescript", "javascript", "rust" },
+        ensure_installed = { "go", "gomod", "gowork", "gosum", "lua", "typescript", "javascript", "rust", "c", "cpp" },
         auto_install = true,
         highlight = {
             enable = true,

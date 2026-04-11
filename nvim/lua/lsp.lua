@@ -70,7 +70,7 @@ vim.lsp.config('rust_analyzer', {
 
 vim.lsp.config('clangd', {
     capabilities = capabilities,
-    root_markers = { 'compile_commands.json', 'compile_flags.txt', '.git' },
+    root_markers = { 'compile_commands.json', 'compile_flags.txt', 'CMakeLists.txt', 'main.c', '.git' },
 })
 
 vim.lsp.config('gopls', {
