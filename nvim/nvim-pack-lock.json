@@ -4,6 +4,10 @@
       "rev": "40380e711b616a28affb0f4086a2f7de2f2a556b",
       "src": "https://github.com/saghen/blink.cmp"
     },
+    "catppuccin": {
+      "rev": "426dbebe06b5c69fd846ceb17b42e12f890aedf1",
+      "src": "https://github.com/catppuccin/nvim"
+    },
     "dracula.nvim": {
       "rev": "ae752c13e95fb7c5f58da4b5123cb804ea7568ee",
       "src": "https://github.com/Mofiqul/dracula.nvim"

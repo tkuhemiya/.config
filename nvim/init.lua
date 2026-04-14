@@ -8,6 +8,8 @@ vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 
     { src = "https://github.com/vague-theme/vague.nvim" },
+    { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
+
     { src = "https://github.com/folke/flash.nvim" },
     { src = "https://github.com/mason-org/mason.nvim" },
     { src = "https://github.com/neovim/nvim-lspconfig" },
@@ -23,12 +25,14 @@ require('plugin')
 require('keymap')
 require('autocmd')
 
-require("vague").setup({
-  transparent = false,
-  bold = true,
-  italic = true,
+require("catppuccin").setup({
+    flavour = "mocha",
+    transparent_background = false, 
+    term_colors = true,
 })
-vim.cmd.colorscheme "vague"
+
+vim.cmd.colorscheme "catppuccin-nvim"
+
 vim.o.cmdheight = 0
 vim.o.laststatus = 3
 require('starter')
