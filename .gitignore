@@ -1,5 +1,6 @@
 .DS_Store
 test
+colima/
 raycast/
 .zsh_history
 .zcompdump

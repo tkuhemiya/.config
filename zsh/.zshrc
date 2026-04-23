@@ -32,6 +32,7 @@ alias vi='nvim .'
 alias vs='code ./'
 alias ls='ls -G'
 alias l='ls -lAhG -S '
+alias lss='tree --level=1'
 alias cat='bat -pp'
 alias o='open'
 alias dk='docker'
@@ -83,3 +84,6 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+# Created by `pipx` on 2026-04-12 22:53:25
+export PATH="$PATH:/Users/themiya/.local/bin"
