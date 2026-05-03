@@ -22,13 +22,9 @@ macos-titlebar-style = tabs
 
 title = " "
 
-#background-image = "~/Pictures/wallpaper/wallhaven-856dlk_1920x1080.png"
-background-image-position = center
-background-image-fit = cover
-background-image-opacity = 1
-background-opacity = 0.75
-background-opacity-cells = true
-background-blur = 20
+background-opacity = 0.80
+background-opacity-cells = false
+background-blur = 50
 unfocused-split-opacity = 0.4
 #custom-shader = ./ghostty-shaders/slash.glsl
 
