@@ -6,6 +6,7 @@ map('n', '<leader>h', '<Cmd>Telescope help_tags<CR>')
 map('n', '<leader>f', '<Cmd>Telescope find_files<CR>')
 map('n', '<leader>g', '<Cmd>Telescope live_grep<CR>')
 map('n', 'Q', '@@')
+map("n", "<ESC>", ":nohlsearch<CR>", { noremap = true, silent = true, desc = "Clear search highlights" })
 
 local toggle_mini_files = function()
     if vim.bo.filetype == 'minifiles' then
@@ -57,6 +58,7 @@ map('n', '<Tab>', '<Cmd>bnext<CR>', { desc = 'Next Buffer' })
 map('n', '<S-Tab>', '<Cmd>bprev<CR>', { desc = 'Prev Buffer' })
 map('n', '<Leader><Tab>', '<Cmd>bdelete<CR>', { desc = 'Close Buffer' })
 
+vim.cmd.packadd('flash.nvim')
 local has_flash, flash = pcall(require, 'flash')
 if has_flash then
     map({ 'n', 'x', 'o' }, '<leader>s', function()

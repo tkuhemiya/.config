@@ -26,7 +26,7 @@ background-opacity = 0.80
 background-opacity-cells = false
 background-blur = 50
 unfocused-split-opacity = 0.4
-#custom-shader = ./ghostty-shaders/slash.glsl
+custom-shader = ./ghostty-shaders/slash.glsl
 
 macos-option-as-alt = true
 keybind = ctrl+h=goto_split:left

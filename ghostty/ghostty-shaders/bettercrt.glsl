@@ -1,14 +1,3 @@
-// Original shader collected from: https://www.shadertoy.com/view/WsVSzV
-f
-// Licensed under Shadertoy's default since the original creator didn't provide any license. (CC BY NC SA 3.0)
-// Slight modifications were made to give a green-ish effect.
-
-// This shader was modified by April Hall (arithefirst)
-// Sourced from https://github.com/m-ahdal/ghostty-shaders/blob/main/retro-terminal.glsl
-// Changes made:
-// - Removed tint
-// - Made the boundaries match ghostty's background color
-
 float warp = 0.25; // simulate curvature of CRT monitor
 float scan = 0.50; // simulate darkness between scanlines
 

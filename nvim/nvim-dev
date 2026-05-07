@@ -1,0 +1,24 @@
+#!/bin/bash
+# Development wrapper for isolated nvim config testing
+# Usage: ./nvim-dev [file]
+
+# Get the directory where this script lives (the config root)
+CONFIG_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Use NVIM_APPNAME to isolate ALL nvim state (plugins, cache, shada, etc.)
+# from your main ~/.config/nvim
+export NVIM_APPNAME="nvim-dev"
+
+# Create minimal init wrapper that sets up paths then loads main config
+export NVIM_DEV_CONFIG="$CONFIG_DIR"
+
+exec nvim -u <(cat << 'EOF'
+-- Bootstrap: Add config dir to runtimepath before anything else
+local config_dir = vim.env.NVIM_DEV_CONFIG
+vim.opt.runtimepath:prepend(config_dir)
+vim.opt.runtimepath:append(config_dir .. "/after")
+
+-- Now load the actual init.lua
+vim.cmd("source " .. config_dir .. "/init.lua")
+EOF
+) "$@"

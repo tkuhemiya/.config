@@ -3,7 +3,6 @@ require('mini.completion').setup({
     mappings = {
         force_twostep = '<C-Space>',
     },
-    
     window = {
         info = { border = 'single' },
         signature = { border = 'single' },
@@ -39,7 +38,14 @@ require('mini.icons').setup({
     style = 'glyph',
 })
 
-require('flash').setup()
+vim.cmd.packadd('flash.nvim')
+require('flash').setup({
+    modes = {
+        char = {
+            jump_labels = true,
+        },
+    },
+})
 
 require('snacks').setup({
     indent = {
