@@ -12,21 +12,28 @@ font-family = JetBrains Mono Light
 font-family-bold = JetBrains Mono Bold
 font-family-italic = JetBrains Mono Italic
 font-family-bold-italic = JetBrains Mono Bold Italic
-font-size = 18
+font-size = 16
 font-thicken = true
 adjust-cursor-thickness = 175%
 #adjust-cell-width = -4%
 adjust-cell-height = 17%
 
-macos-titlebar-style = tabs
+macos-titlebar-style = hidden
+window-decoration = none
+macos-non-native-fullscreen = false
 
 title = " "
 
 background-opacity = 0.80
 background-opacity-cells = false
 background-blur = 50
-unfocused-split-opacity = 0.4
-custom-shader = ./ghostty-shaders/slash.glsl
+unfocused-split-opacity = 0.9
+#custom-shader = ./ghostty-shaders/slash.glsl
+
+quick-terminal-size = 50%,50%
+quick-terminal-position = center
+quick-terminal-animation-duration = 0.1
+
 
 macos-option-as-alt = true
 keybind = ctrl+h=goto_split:left
@@ -40,3 +47,5 @@ keybind = ctrl+a>k=new_split:up
 keybind = ctrl+a>l=new_split:right
 
 keybind = super+r=reload_config
+
+keybind = global:cmd+enter=toggle_quick_terminal
