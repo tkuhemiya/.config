@@ -11,3 +11,26 @@ swiftpm
 sdgp.sh
 docker
 .android
+
+### Entire directories to skip (caches, machine state, generated files)
+.android/
+colima/_lima/
+colima/_store/
+colima/default/
+configstore/
+docker/
+gh/hosts.yml
+glow/
+linearmouse/
+mole/
+node_modules/
+nushell/history.txt
+opencode/node_modules/
+opencode/.bin/
+opencode/bun.lock
+opencode/package-lock.json
+pnpm/
+raycast/extensions/
+raycast-x/
+zsh/.zsh_history
+zsh/.zcompdump

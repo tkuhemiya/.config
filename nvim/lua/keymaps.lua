@@ -9,14 +9,20 @@ local map = vim.keymap.set
 vim.g.mapleader = " "
 
 -- Buffer / window management
-map({ "n" }, "<leader>w", "<Cmd>update<CR>", { desc = "Write buffer" })
-map({ "n" }, "<leader>q", "<Cmd>:quit<CR>", { desc = "Close window" })
-map({ "n" }, "<leader>Q", "<Cmd>:wqa<CR>", { desc = "Write all, quit" })
+map({ "n" }, "<leader>w", "<Cmd>w<CR>", { desc = "Write buffer" })
+map({ "n" }, "<leader>q", "<Cmd>q<CR>", { desc = "Close window" })
+map({ "n" }, "q", "<Cmd>qa<CR>", { desc = "Quit all" })
+map({ "n" }, "<leader>Q", "<Cmd>wqa<CR>", { desc = "Write all, quit" })
 map({ "n" }, "<leader>e", function() Minifile.open() end, { desc = "Open mini.files" })
 map({ "n" }, "<C-q>", ":copen<CR>", { desc = "Open quickfix", silent = true })
 map({ "n", "t" }, "<Leader>x", "<Cmd>tabclose<CR>", { desc = "Close current tab" })
 map({ "n", "t" }, "<Leader>t", "<Cmd>split<CR> <Cmd>term<CR>i", { desc = "Open terminal split" })
 map({ "t" }, "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
+--- Buffer
+map('n', '<Tab>', '<Cmd>bnext<CR>', { desc = 'Next Buffer' })
+map('n', '<S-Tab>', '<Cmd>bprev<CR>', { desc = 'Prev Buffer' })
+map('n', '<Leader><Tab>', '<Cmd>bdelete<CR>', { desc = 'Close Buffer' })
 
 -- System clipboard
 map({ "n" }, "<leader>p", '"+p', { desc = "Paste from clipboard" })
@@ -33,7 +39,7 @@ map({ "n", "x" }, "H", "^", { desc = "Start of line" })
 -- Search navigation (centered)
 vim.keymap.set("n", "n", "nzz", { desc = "Next result centered" })
 vim.keymap.set("n", "N", "Nzz", { desc = "Prev result centered" })
-vim.keymap.set("n", "<ESC>", ":nohlsearch<CR>", { desc = "Clear highlights" })
+--vim.keymap.set("n", "<ESC>", ":nohlsearch<CR>", { desc = "Clear highlights" })
 
 -- Find / replace
 vim.keymap.set("n", "S", function()

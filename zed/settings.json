@@ -3,14 +3,14 @@
     "trust_all_worktrees": true
   },
   "show_edit_predictions": true,
-  "buffer_line_height": "comfortable",
+  "buffer_line_height": "standard",
   "spell_checker": true,
   "show_wrap_guides": true,
   "edit_predictions": {
     "mode": "eager"
   },
   "agent": {
-    "play_sound_when_agent_done": true,
+    "play_sound_when_agent_done": "always",
     "model_parameters": []
   },
   "telemetry": {
@@ -18,6 +18,7 @@
     "metrics": false
   },
   "terminal": {
+    "font_family": "JetBrains Mono",
     "toolbar": {
       "breadcrumbs": false
     },
@@ -46,8 +47,16 @@
   "base_keymap": "VSCode",
   "vim_mode": true,
   "relative_line_numbers": "enabled",
-  "icon_theme": "JetBrains New UI Icons (Dark)",
-  "theme": "Ayu Dark",
+  "icon_theme": {
+    "mode": "light",
+    "light": "JetBrains New UI Icons (Dark)",
+    "dark": "JetBrains New UI Icons (Dark)"
+  },
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Tokyo Night"
+  },
   "experimental.theme_overrides": {
     // "background.appearance": "blurred",
     "background": "#00000040"
