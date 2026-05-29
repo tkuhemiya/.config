@@ -31,6 +31,7 @@ opencode/.bin/
 opencode/bun.lock
 opencode/package-lock.json
 pnpm/
+lazygit/
 raycast/extensions/
 raycast-x/
 zsh/.zsh_history
