@@ -19,7 +19,7 @@ colima/_store/
 colima/default/
 configstore/
 docker/
-gh/hosts.yml
+gh/
 glow/
 linearmouse/
 mole/
