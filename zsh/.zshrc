@@ -23,6 +23,7 @@ zle -N openFinder
 bindkey '^O' openFinder
 
 # ALias
+alias ssh='ghostty +ssh --'
 #alias bat='bat -p --theme TwoDark -l sh'
 alias lvim='NVIM_APPNAME=lvim nvim'
 alias cd='z'
@@ -30,6 +31,7 @@ alias c='clear'
 alias vs='code ./'
 alias vi='nvim .'
 alias vs='code ./'
+alias oc='opencode'
 alias ls='ls -G'
 alias l='ls -lAhG -S '
 alias lss='tree --level=1'
@@ -38,6 +40,7 @@ alias o='open'
 alias dk='docker'
 alias tree="erd -C auto -I -H -s name -y inverted"
 alias lg='lazygit'
+alias capp='cap && git push'
 mkcd() {
   mkdir $1
   cd $1
@@ -45,12 +48,14 @@ mkcd() {
 
 # History
 HISTSIZE=5000
-HISTFILE=~/.cache/zsh/.zsh_history
 SAVEHIST=$HISTSIZE
+HISTFILE="$XDG_STATE_HOME/zsh/history"
 HISTDUP=erase
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
 setopt HIST_IGNORE_DUPS
 setopt HIST_SAVE_NO_DUPS
-
 
 bindkey '\eo' openHere
 
@@ -70,6 +75,7 @@ export FZF_CTRL_T_OPTS="
   --preview-window=right:40%
 "
 
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 [[ -s "$XDG_DATA_HOME/sdkman/bin/sdkman-init.sh" ]] && source "$XDG_DATA_HOME/sdkman/bin/sdkman-init.sh"
 
@@ -80,7 +86,6 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # bun completions
 [ -s "/Users/themiya/.bun/_bun" ] && source "/Users/themiya/.bun/_bun"
 
-. "$HOME/.turso/env"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform

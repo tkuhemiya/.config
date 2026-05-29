@@ -18,3 +18,6 @@ mvnH() {
 mkjava() {
   mvn archetype:generate -DgroupId=app -DartifactId=$1 -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.5 -DinteractiveMode=false ;
 }
+murder() {
+  lsof -ti:"$1" | xargs kill -9
+}

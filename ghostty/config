@@ -20,7 +20,7 @@ adjust-cell-height = 17%
 
 macos-titlebar-style = hidden
 window-decoration = none
-macos-non-native-fullscreen = false
+macos-non-native-fullscreen = true
 
 title = " "
 
@@ -36,16 +36,17 @@ quick-terminal-animation-duration = 0.1
 
 
 macos-option-as-alt = true
-keybind = ctrl+h=goto_split:left
-keybind = ctrl+j=goto_split:bottom
-keybind = ctrl+k=goto_split:top
-keybind = ctrl+l=goto_split:right
-
-keybind = ctrl+a>h=new_split:left
-keybind = ctrl+a>j=new_split:down
-keybind = ctrl+a>k=new_split:up
-keybind = ctrl+a>l=new_split:right
+#keybind = ctrl+h=goto_split:left
+#keybind = ctrl+j=goto_split:bottom
+#keybind = ctrl+k=goto_split:top
+#keybind = ctrl+l=goto_split:right
+#
+#keybind = ctrl+a>h=new_split:left
+#keybind = ctrl+a>j=new_split:down
+#keybind = ctrl+a>k=new_split:up
+#keybind = ctrl+a>l=new_split:right
 
 keybind = super+r=reload_config
 
 keybind = global:cmd+enter=toggle_quick_terminal
+keybind = super+ctrl+f=toggle_fullscreen
