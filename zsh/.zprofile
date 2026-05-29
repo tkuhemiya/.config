@@ -60,7 +60,5 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
-complete -C '/opt/homebrew/bin/aws_completer' aws
-
 # Created by `pipx` on 2026-04-12 22:53:25
 export PATH="$PATH:/Users/themiya/.local/bin"
