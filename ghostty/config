@@ -24,9 +24,9 @@ macos-non-native-fullscreen = true
 
 title = " "
 
-background-opacity = 0.80
+background-opacity = 0.92
 background-opacity-cells = false
-background-blur = 50
+background-blur = 40
 unfocused-split-opacity = 0.9
 #custom-shader = ./ghostty-shaders/slash.glsl
 

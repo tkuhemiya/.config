@@ -1,7 +1,7 @@
 require("options")
 
 vim.pack.add({
-	{ src = "https://github.com/vague-theme/vague.nvim" },
+	{ src = "https://github.com/rose-pine/neovim", name = "rose-pine" },
 	{ src = "https://github.com/nvim-pack/nvim-spectre" },
 	{ src = "https://github.com/nvim-mini/mini.nvim" },
 	{ src = "https://github.com/nvim-mini/mini.pairs" },
@@ -29,8 +29,12 @@ vim.pack.add({
 })
 
 -- colorscheme
-require('vague').setup()
-vim.cmd.colorscheme "vague"
+require("rose-pine").setup({
+  styles = {
+		transparency = true,
+	}
+})
+vim.cmd.colorscheme "rose-pine"
 
 require("plugins")
 require("keymaps")

@@ -1,6 +1,6 @@
 require("lualine").setup({
   options = {
-    theme = "auto",
+    theme = "rose-pine",
     globalstatus = true,
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
