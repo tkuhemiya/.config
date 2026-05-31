@@ -59,6 +59,8 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+export PATH="/opt/homebrew/opt/bison/bin:$PATH"
+
 
 # Created by `pipx` on 2026-04-12 22:53:25
 export PATH="$PATH:/Users/themiya/.local/bin"
