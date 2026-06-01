@@ -48,5 +48,13 @@ vim.opt.pummaxwidth = 80
 vim.opt.pumborder = "rounded"
 vim.opt.completeopt = { "menuone", "noinsert" }
 
+-- Folding (native treesitter)
+vim.opt.foldcolumn = "auto:1"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
 -- LSP / syntax highlights
 vim.cmd([[hi @lsp.type.number gui=bold]])

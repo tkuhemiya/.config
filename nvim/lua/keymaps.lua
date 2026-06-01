@@ -133,6 +133,21 @@ map({ "i", "s" }, "<C-e>", function() ls.expand_or_jump(1) end, { silent = true,
 map({ "i", "s" }, "<C-J>", function() ls.jump(1) end, { silent = true, desc = "Jump forward" })
 map({ "i", "s" }, "<C-K>", function() ls.jump(-1) end, { silent = true, desc = "Jump backward" })
 
+-- Folding (native)
+-- zm: toggle fold under cursor recursively (zA)
+map("n", "zm", "zA", { desc = "Toggle fold under cursor", noremap = true })
+-- zM: toggle all folds in the file
+vim.keymap.set("n", "zM", function()
+	if vim.o.foldlevel == 0 then
+		vim.cmd("normal! zR")
+	else
+		vim.cmd("normal! zM")
+	end
+end, { desc = "Toggle all folds" })
+
+-- Change working directory to current file's directory
+map({ "n" }, "<leader>-", "<Cmd>lcd %:p:h<CR>", { desc = "Change dir to current file" })
+
 -- Misc
 map({ "n" }, "<C-f>", "<Cmd>Open .<CR>", { desc = "Open in Finder" })
 
