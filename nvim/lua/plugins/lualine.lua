@@ -27,6 +27,14 @@ require("lualine").setup({
         path = 1,
         shorting_target = 40,
       },
+      -- recording indicator
+      function()
+        local reg = vim.fn.reg_recording()
+        if reg == "" then
+          return nil
+        end
+        return "Rec: @" .. reg
+      end,
     },
     lualine_c = {
       "branch",

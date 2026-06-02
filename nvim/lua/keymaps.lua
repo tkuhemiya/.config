@@ -11,7 +11,6 @@ vim.g.mapleader = " "
 -- Buffer / window management
 map({ "n" }, "<leader>w", "<Cmd>w<CR>", { desc = "Write buffer" })
 map({ "n" }, "<leader>q", "<Cmd>q<CR>", { desc = "Close window" })
-map({ "n" }, "q", "<Cmd>qa<CR>", { desc = "Quit all" })
 map({ "n" }, "<leader>Q", "<Cmd>wqa<CR>", { desc = "Write all, quit" })
 map({ "n" }, "<leader>e", function() Minifile.open() end, { desc = "Open mini.files" })
 map({ "n" }, "<C-q>", ":copen<CR>", { desc = "Open quickfix", silent = true })
