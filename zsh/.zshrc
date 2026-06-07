@@ -23,7 +23,9 @@ zle -N openFinder
 bindkey '^O' openFinder
 
 # ALias
-alias ssh='ghostty +ssh --'
+#alias ssh='ghostty +ssh --'
+alias k='kubectl'
+alias ip='ipconfig getifaddr en0'
 #alias bat='bat -p --theme TwoDark -l sh'
 alias lvim='NVIM_APPNAME=lvim nvim'
 alias cd='z'
