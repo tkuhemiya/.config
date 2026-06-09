@@ -8,18 +8,50 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "agent": {
+    "tool_permissions": {
+      "tools": {
+        "terminal": {
+          "always_allow": [
+            {
+              "pattern": "^cd\\s+interfaces(\\s|$)"
+            },
+            {
+              "pattern": "^go\\s+run(\\s|$)"
+            }
+          ]
+        }
+      }
+    },
     "default_model": {
       "provider": "opencode",
       "model": "free/big-pickle",
       "enable_thinking": false
     },
-    "favorite_models": [],
+    "favorite_models": [
+      {
+        "provider": "opencode",
+        "model": "free/big-pickle",
+        "enable_thinking": false
+      },
+      {
+        "provider": "opencode",
+        "model": "go/deepseek-v4-flash",
+        "enable_thinking": true,
+        "effort": "max"
+      },
+      {
+        "provider": "opencode",
+        "model": "go/deepseek-v4-pro",
+        "enable_thinking": true,
+        "effort": "max"
+      }
+    ],
     "model_parameters": []
   },
   "agent_servers": {
     "your_agent": {
       "type": "custom",
-      "command": "pi",
+      "command": "/opt/homebrew/bin/pi",
     },
   },
   "language_models": {
@@ -31,7 +63,7 @@
   "ui_font_family": ".ZedSans",
   "buffer_font_family": "JetBrains Mono",
   "icon_theme": {
-    "mode": "dark",
+    "mode": "light",
     "light": "Zed (Default)",
     "dark": "Colored Zed Icons Theme Dark",
   },
@@ -53,6 +85,6 @@
   "theme": {
     "mode": "dark",
     "light": "Ayu Light",
-    "dark": "Vercel Dark",
+    "dark": "Rose Pine",
   },
 }
