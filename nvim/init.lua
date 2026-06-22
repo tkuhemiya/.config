@@ -2,6 +2,7 @@ require("options")
 
 vim.pack.add({
 	{ src = "https://github.com/rose-pine/neovim", name = "rose-pine" },
+	{ src = "https://github.com/cseelus/vim-colors-lucid", name = "lucid" },
 	{ src = "https://github.com/nvim-pack/nvim-spectre" },
 	{ src = "https://github.com/nvim-mini/mini.nvim" },
 	{ src = "https://github.com/nvim-mini/mini.pairs" },
@@ -29,12 +30,16 @@ vim.pack.add({
 })
 
 -- colorscheme
-require("rose-pine").setup({
-  styles = {
-		transparency = true,
-	}
-})
-vim.cmd.colorscheme "rose-pine"
+-- require("rose-pine").setup({
+--   styles = {
+-- 		transparency = true,
+-- 	}
+-- })
+-- vim.cmd.colorscheme "rose-pine"
+
+-- lucid
+vim.cmd.colorscheme "lucid"
+vim.cmd("highlight Normal guibg=NONE")
 
 require("plugins")
 require("keymaps")

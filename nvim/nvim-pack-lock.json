@@ -44,6 +44,10 @@
       "rev": "131a558e13f9f28b15cd235557150ccb23f89286",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
+    "lucid": {
+      "rev": "4efacf11f4bda195a4dd2612a87515a2ebd6b3a0",
+      "src": "https://github.com/cseelus/vim-colors-lucid"
+    },
     "marks.nvim": {
       "rev": "f353e8c08c50f39e99a9ed474172df7eddd89b72",
       "src": "https://github.com/chentoast/marks.nvim"
