@@ -7,8 +7,14 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "disable_ai": true,
+  "edit_predictions": {
+    "mode": "subtle",
+    "provider": "zed"
+  },
   "agent": {
     "tool_permissions": {
+      "default": "allow",
       "tools": {
         "terminal": {
           "always_allow": [
@@ -23,9 +29,10 @@
       }
     },
     "default_model": {
-      "provider": "opencode",
-      "model": "free/big-pickle",
-      "enable_thinking": false
+      "effort": "high",
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4-6",
+      "enable_thinking": true
     },
     "favorite_models": [
       {
@@ -37,7 +44,7 @@
         "provider": "opencode",
         "model": "go/deepseek-v4-flash",
         "enable_thinking": true,
-        "effort": "max"
+        "effort": "high"
       },
       {
         "provider": "opencode",
@@ -49,6 +56,12 @@
     "model_parameters": []
   },
   "agent_servers": {
+    "opencode": {
+      "default_config_options": {
+        "model": "opencode-go/deepseek-v4-flash"
+      },
+      "type": "registry"
+    },
     "your_agent": {
       "type": "custom",
       "command": "/opt/homebrew/bin/pi",
@@ -60,10 +73,10 @@
       "show_zen_models": false,
     },
   },
-  "ui_font_family": ".ZedSans",
-  "buffer_font_family": "JetBrains Mono",
+  "ui_font_family": "Moxy",
+  "buffer_font_family": "Moxy",
   "icon_theme": {
-    "mode": "light",
+    "mode": "dark",
     "light": "Zed (Default)",
     "dark": "Colored Zed Icons Theme Dark",
   },
@@ -80,7 +93,7 @@
     "trust_all_worktrees": true,
   },
   "vim_mode": true,
-  "ui_font_size": 16,
+  "ui_font_size": 13.0,
   "buffer_font_size": 15,
   "theme": {
     "mode": "dark",

@@ -36,3 +36,11 @@ raycast/extensions/
 raycast-x/
 zsh/.zsh_history
 zsh/.zcompdump
+.wrangler
+cursor
+fish
+helm
+homebrew
+incus
+openchamber
+tanstack

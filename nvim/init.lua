@@ -29,17 +29,13 @@ vim.pack.add({
 	{ src = "https://github.com/3rd/image.nvim" },
 })
 
--- colorscheme
--- require("rose-pine").setup({
---   styles = {
--- 		transparency = true,
--- 	}
--- })
--- vim.cmd.colorscheme "rose-pine"
+require("rose-pine").setup({
+  styles = {
+		transparency = true,
+	}
+})
+vim.cmd.colorscheme "rose-pine"
 
--- lucid
-vim.cmd.colorscheme "lucid"
-vim.cmd("highlight Normal guibg=NONE")
 
 require("plugins")
 require("keymaps")

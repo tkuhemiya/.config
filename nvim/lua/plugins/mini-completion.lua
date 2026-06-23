@@ -37,7 +37,7 @@ keymap('i', '<CR>', function()
 end, { expr = true })
 
 require('mini.completion').setup({
-    delay = { completion = 10, info = 100, signature = 10 },
+    delay = { completion = 100, info = 100, signature = 10 },
     mappings = {
         force_twostep = '<C-Space>',
     },

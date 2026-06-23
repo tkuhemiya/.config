@@ -35,4 +35,4 @@ require("plugins.image")
 
 require('marks').setup()
 
-require('mini.diff').setup()
+-- require('mini.diff').setup()

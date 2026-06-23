@@ -48,13 +48,20 @@ vim.opt.pummaxwidth = 80
 vim.opt.pumborder = "rounded"
 vim.opt.completeopt = { "menuone", "noinsert" }
 
--- Folding (native treesitter)
+-- Folding (indent by default; treesitter for specific langs)
 vim.opt.foldcolumn = "auto:1"
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.foldenable = true
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldmethod = "indent"
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "python", "rust", "javascript", "typescript", "lua" },
+  callback = function()
+    vim.wo.foldmethod = "expr"
+    vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+  end,
+})
 
 -- LSP / syntax highlights
 vim.cmd([[hi @lsp.type.number gui=bold]])

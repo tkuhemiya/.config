@@ -25,6 +25,7 @@ bindkey '^O' openFinder
 # ALias
 #alias ssh='ghostty +ssh --'
 alias k='kubectl'
+alias t='terraform'
 alias ip='ipconfig getifaddr en0'
 #alias bat='bat -p --theme TwoDark -l sh'
 alias lvim='NVIM_APPNAME=lvim nvim'
