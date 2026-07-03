@@ -40,8 +40,6 @@ The lesson should teach ONE THING only. It should be completable very quickly - 
 
 Make opening a lesson as easy as possible — ideally a single CLI command the user can run to open the HTML file in their browser.
 
-Use **[Mermaid.js](https://mermaid.js.org/)** for all diagrams and flowcharts. Include the Mermaid CDN script and init call (`mermaid.initialize({ startOnLoad: true, ... })`). Do NOT use ASCII art (`<pre>`, monospace box-drawing characters) for diagrams.
-
 ## The Mission
 
 Every lesson should be tied into the mission - the reason that the user is interested in learning about the topic.

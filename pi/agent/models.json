@@ -1,0 +1,26 @@
+{
+  "providers": {
+    "openai": {
+      "models": [
+        {
+          "id": "gpt-4o-search-preview",
+          "name": "GPT-4o Search Preview",
+          "reasoning": false,
+          "input": ["text"],
+          "cost": { "input": 2.5, "output": 10, "cacheRead": 1.25, "cacheWrite": 2.5 },
+          "contextWindow": 128000,
+          "maxTokens": 16384
+        },
+        {
+          "id": "gpt-4o-mini-search-preview",
+          "name": "GPT-4o Mini Search Preview",
+          "reasoning": false,
+          "input": ["text"],
+          "cost": { "input": 0.15, "output": 0.6, "cacheRead": 0.075, "cacheWrite": 0.15 },
+          "contextWindow": 128000,
+          "maxTokens": 16384
+        }
+      ]
+    }
+  }
+}

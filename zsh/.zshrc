@@ -24,6 +24,8 @@ bindkey '^O' openFinder
 
 # ALias
 #alias ssh='ghostty +ssh --'
+alias sio='/Users/themiya/Applications/sioyek.app/Contents/MacOS/sioyek'
+alias sioyek='/Users/themiya/Applications/sioyek.app/Contents/MacOS/sioyek'
 alias k='kubectl'
 alias t='terraform'
 alias ip='ipconfig getifaddr en0'

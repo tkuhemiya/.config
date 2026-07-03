@@ -12,6 +12,10 @@ sdgp.sh
 docker
 .android
 
+*.log
+herdr/release-notes.json
+pi/agent/sessions/
+
 ### Entire directories to skip (caches, machine state, generated files)
 .android/
 btop/

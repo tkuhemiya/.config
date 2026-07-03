@@ -7,6 +7,57 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "server_url": "https://zed.dev",
+  "proxy": "",
+  "use_system_window_tabs": false,
+  "status_bar": {
+    "cursor_position_button": false,
+    "active_language_button": true
+  },
+  "project_panel": {
+    "button": true
+  },
+  "prettier": {
+    "allowed": true
+  },
+  "completions": {
+    "lsp_fetch_timeout_ms": 0
+  },
+  "document_folding_ranges": "on",
+  "semantic_tokens": "combined",
+  "colorize_brackets": true,
+  "code_lens": "on",
+  "soft_wrap": "bounded",
+  "vim": {
+    "show_edit_predictions_in_normal_mode": true,
+    "use_system_clipboard": "never"
+  },
+  "toolbar": {
+    "code_actions": true,
+    "agent_review": true,
+    "quick_actions": true,
+    "breadcrumbs": true
+  },
+  "minimap": {
+    "thumb": "hover",
+    "display_in": "active_editor",
+    "show": "never"
+  },
+  "gutter": {
+    "line_numbers": true
+  },
+  "hover_popover_hiding_delay": 100,
+  "hover_popover_delay": 100,
+  "which_key": {
+    "enabled": true
+  },
+  "current_line_highlight": "all",
+  "hide_mouse": "never",
+  "cursor_shape": "bar",
+  "multi_cursor_modifier": "cmd_or_ctrl",
+  "buffer_line_height": "comfortable",
+  "buffer_font_weight": 400.0,
+  "restore_on_startup": "none",
   "disable_ai": true,
   "edit_predictions": {
     "mode": "subtle",
@@ -55,6 +106,12 @@
     ],
     "model_parameters": []
   },
+	 "file_scan_exclusions": [
+    "**/.git",
+    "**/dist",
+    "**/node_modules",
+    "**/target"
+  ],
   "agent_servers": {
     "opencode": {
       "default_config_options": {
@@ -81,8 +138,9 @@
     "dark": "Colored Zed Icons Theme Dark",
   },
   "terminal": {
+    "button": true,
     "font_size": 10.0,
-    "font_family": "JetBrains Mono",
+    "font_family": "Moxy",
   },
   "cli_default_open_behavior": "existing_window",
   "telemetry": {
@@ -90,6 +148,7 @@
     "metrics": false,
   },
   "session": {
+    "restore_unsaved_buffers": false,
     "trust_all_worktrees": true,
   },
   "vim_mode": true,

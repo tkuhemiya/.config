@@ -1,0 +1,21 @@
+{
+  "name": "pi-extensions",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@earendil-works/pi-ai": "^0.74.1",
+    "@earendil-works/pi-coding-agent": "^0.74.0",
+    "@earendil-works/pi-tui": "^0.74.0",
+    "exa-js": "^1.5.3",
+    "typebox": "^1.1.38"
+  },
+  "scripts": {
+    "check": "biome check",
+    "fix": "biome check --write",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.15",
+    "typescript": "^6.0.3"
+  }
+}

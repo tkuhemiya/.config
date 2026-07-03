@@ -1,0 +1,28 @@
+{
+  "lastChangelogVersion": "0.75.5",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.4-mini",
+  "defaultThinkingLevel": "medium",
+  "packages": [
+    "npm:@upstash/context7-pi"
+  ],
+  "committee": {
+    "currentProvider": "github-copilot",
+    "currentModel": "gpt-5.4-mini"
+  },
+  "commit": {
+    "currentProvider": "opencode-go",
+    "currentModel": "minimax-m2.5"
+  },
+  "theme": "catppuccin-mocha",
+  "terminal": {
+    "imageWidthCells": 60,
+    "showTerminalProgress": false
+  },
+  "editorPaddingX": 1,
+  "hideThinkingBlock": true,
+  "images": {
+    "blockImages": false
+  },
+  "quietStartup": true
+}

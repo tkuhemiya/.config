@@ -1,0 +1,59 @@
+onboarding = false
+
+[keys]
+# tmux parity from ~/.config/tmux/tmux.conf
+prefix = "ctrl+a"
+
+# Windows/tabs: tmux M-1..9, M-Enter, M-[, M-]
+switch_tab = ["alt+1..9"]
+switch_workspace = ["prefix+1..9"]
+new_tab = ["alt+enter", "prefix+c"]
+previous_tab = ["alt+[", "prefix+p"]
+next_tab = ["alt+]", "prefix+n"]
+rename_tab = ["prefix+comma", "prefix+shift+t"]
+close_tab = ["alt+q", "prefix+shift+x"]
+
+# Panes: tmux prefix |/-, M-hjkl, M-x
+split_vertical = ["prefix+|", "prefix+v"]
+split_horizontal = "prefix+minus"
+focus_pane_left = ["alt+h", "prefix+h"]
+focus_pane_down = ["alt+j", "prefix+j"]
+focus_pane_up = ["alt+k", "prefix+k"]
+focus_pane_right = ["alt+l", "prefix+l"]
+close_pane = ["alt+x", "prefix+x"]
+
+# Session/workspace-ish equivalents: tmux M-d, M-X
+# Herdr has workspaces rather than tmux sessions; alt+shift+x closes the current workspace.
+detach = ["alt+d", "prefix+q"]
+close_workspace = ["alt+shift+x", "prefix+shift+d"]
+
+# tmux prefix r reloads config; disable Herdr's default resize-mode on prefix+r.
+reload_config = ["prefix+r", "prefix+shift+r"]
+resize_mode = ""
+
+# Copy mode: tmux prefix Enter. Keep Herdr's default prefix+[ too.
+copy_mode = ["prefix+enter", "prefix+["]
+
+# tmux prefix C-f session switcher; closest Herdr equivalent is workspace picker.
+workspace_picker = ["prefix+ctrl+f", "prefix+w"]
+
+# tmux M-H/J/K/L resize-pane -L/D/U/R 5. Herdr resize amount is fractional.
+[[keys.command]]
+key = "alt+shift+h"
+type = "shell"
+command = "herdr pane resize --direction left --amount 0.1 --current"
+
+[[keys.command]]
+key = "alt+shift+j"
+type = "shell"
+command = "herdr pane resize --direction down --amount 0.1 --current"
+
+[[keys.command]]
+key = "alt+shift+k"
+type = "shell"
+command = "herdr pane resize --direction up --amount 0.1 --current"
+
+[[keys.command]]
+key = "alt+shift+l"
+type = "shell"
+command = "herdr pane resize --direction right --amount 0.1 --current"

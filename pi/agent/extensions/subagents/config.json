@@ -1,0 +1,7 @@
+{
+  "maxConcurrency": 4,
+  "maxActiveSubagents": 8,
+  "workerToolMode": "inherit-with-safe-bash",
+  "allowRecursiveWorkers": false,
+  "maxReturnedBytes": 12000
+}
