@@ -1,7 +1,7 @@
 {
-  "lastChangelogVersion": "0.75.5",
-  "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.4-mini",
+  "lastChangelogVersion": "0.80.2",
+  "defaultProvider": "cursor",
+  "defaultModel": "composer-2.5",
   "defaultThinkingLevel": "medium",
   "packages": [
     "npm:@upstash/context7-pi"
@@ -14,7 +14,7 @@
     "currentProvider": "opencode-go",
     "currentModel": "minimax-m2.5"
   },
-  "theme": "catppuccin-mocha",
+  "theme": "rose-pine",
   "terminal": {
     "imageWidthCells": 60,
     "showTerminalProgress": false
