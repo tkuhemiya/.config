@@ -1,8 +1,8 @@
 {
   "lastChangelogVersion": "0.80.2",
-  "defaultProvider": "cursor",
-  "defaultModel": "composer-2.5",
-  "defaultThinkingLevel": "medium",
+  "defaultProvider": "opencode-go",
+  "defaultModel": "deepseek-v4-flash",
+  "defaultThinkingLevel": "high",
   "packages": [
     "npm:@upstash/context7-pi"
   ],

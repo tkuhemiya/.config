@@ -2,11 +2,11 @@
   "version": 3,
   "workspaces": [
     {
-      "id": "wJ",
+      "id": "wK",
       "custom_name": null,
       "identity_cwd": "/Users/themiya",
       "public_pane_numbers": {
-        "5": 1
+        "2": 1
       },
       "next_public_pane_number": 2,
       "public_tab_numbers": [
@@ -17,16 +17,16 @@
         {
           "custom_name": null,
           "layout": {
-            "Pane": 5
+            "Pane": 2
           },
           "panes": {
-            "5": {
+            "2": {
               "cwd": "/Users/themiya"
             }
           },
           "zoomed": false,
-          "focused": 5,
-          "root_pane": 5
+          "focused": 2,
+          "root_pane": 2
         }
       ],
       "active_tab": 0

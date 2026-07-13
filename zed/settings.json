@@ -108,9 +108,11 @@
   },
 	 "file_scan_exclusions": [
     "**/.git",
+    "**/.venv",
     "**/dist",
     "**/node_modules",
-    "**/target"
+    "**/target",
+    "**/.wrangler"
   ],
   "agent_servers": {
     "opencode": {
@@ -158,5 +160,15 @@
     "mode": "dark",
     "light": "Ayu Light",
     "dark": "Rose Pine",
+  },
+  "languages": {
+    "Python": {
+      "language_servers": [
+        "ty",
+        "!basedpyright",
+        "ruff",
+      ],
+      "format_on_save": "on",
+    },
   },
 }

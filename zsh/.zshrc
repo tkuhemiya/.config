@@ -97,3 +97,8 @@ complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 # Created by `pipx` on 2026-04-12 22:53:25
 export PATH="$PATH:/Users/themiya/.local/bin"
+
+# Vite+ bin (https://viteplus.dev)
+. "$HOME/.vite-plus/env"
+
+. "$HOME/.local/share//../bin/env"
