@@ -103,16 +103,17 @@ Lines of text that span the full viewport are hard to read. Use a centered fixed
 .wrapper {
   display: grid;
   grid-template-columns:
-    1fr
-    min(42rem, 100%)
-    1fr;
+    minmax(1rem, 1fr)
+    min(60rem, 100%)
+    minmax(1rem, 1fr);
 }
+
 .wrapper > * {
   grid-column: 2;
 }
-.full-bleed {
-  width: 90%;
-  grid-column: 1 / 4;
+
+.wrapper > .full-bleed {
+  grid-column: 1 / -1;
 }
 ```
 

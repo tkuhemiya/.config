@@ -14,12 +14,12 @@
     "currentProvider": "opencode-go",
     "currentModel": "minimax-m2.5"
   },
-  "theme": "rose-pine",
+  "theme": "pierre-dark",
   "terminal": {
     "imageWidthCells": 60,
     "showTerminalProgress": false
   },
-  "editorPaddingX": 1,
+  "editorPaddingX": 0,
   "hideThinkingBlock": true,
   "images": {
     "blockImages": false

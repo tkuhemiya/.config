@@ -9,6 +9,10 @@ import type {
 } from 'exa-js';
 import { Exa } from 'exa-js';
 import { Type } from 'typebox';
+import { readEnvValue } from '../shared/read-env.ts';
+
+const MISSING_EXA_KEY_MSG =
+  'Missing EXA_API_KEY in the environment or ~/.pi/agent/.env (see .env.example)';
 
 // ---------------------------------------------------------------------------
 // Types
@@ -69,9 +73,9 @@ interface WebGetContentsDetails {
 // Helpers
 // ---------------------------------------------------------------------------
 
-function getExaClient() {
-  const apiKey =
-    process.env.EXA_API_KEY || '63417dd2-d601-4abc-b756-84e9ed43fcd9';
+function getExaClient(): Exa | null {
+  const apiKey = readEnvValue('EXA_API_KEY');
+  if (!apiKey) return null;
   return new Exa(apiKey);
 }
 
@@ -128,16 +132,7 @@ function formatSearchResults(
 // ---------------------------------------------------------------------------
 
 export default function (pi: ExtensionAPI) {
-  // Validate API key on startup
-  const apiKey = '63417dd2-d601-4abc-b756-84e9ed43fcd9';
-  if (!apiKey) {
-    pi.on('session_start', async (_event, ctx) => {
-      ctx.ui.notify(
-        'Exa search: EXA_API_KEY not set. Set it in your environment or .env file.',
-        'warning',
-      );
-    });
-  }
+  const apiKey = readEnvValue('EXA_API_KEY');
 
   // -----------------------------------------------------------------------
   // Tool: web_search
@@ -267,9 +262,7 @@ export default function (pi: ExtensionAPI) {
     async execute(_toolCallId, params, _signal, _onUpdate, _ctx) {
       const exa = getExaClient();
       if (!exa) {
-        throw new Error(
-          'EXA_API_KEY not configured. Set it in your environment: export EXA_API_KEY=your-key',
-        );
+        throw new Error(MISSING_EXA_KEY_MSG);
       }
 
       const numResults = Math.min(params.numResults ?? 10, 25);
@@ -473,9 +466,7 @@ export default function (pi: ExtensionAPI) {
     async execute(_toolCallId, params, _signal, _onUpdate, _ctx) {
       const exa = getExaClient();
       if (!exa) {
-        throw new Error(
-          'EXA_API_KEY not configured. Set it in your environment: export EXA_API_KEY=your-key',
-        );
+        throw new Error(MISSING_EXA_KEY_MSG);
       }
 
       // Build contents options
@@ -590,6 +581,8 @@ export default function (pi: ExtensionAPI) {
         'Exa search extension loaded: web_search and web_get_contents available',
         'info',
       );
+    } else {
+      ctx.ui.notify(`Exa search: ${MISSING_EXA_KEY_MSG}`, 'warning');
     }
   });
 }
