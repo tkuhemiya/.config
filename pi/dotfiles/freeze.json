@@ -1,0 +1,33 @@
+{
+  "window": true,
+  "theme": "charm",
+  "border": {
+    "radius": 8,
+    "width": 1,
+    "color": "#515151"
+  },
+  "shadow": {
+    "blur": 0,
+    "x": 0,
+    "y": 0
+  },
+  "padding": [
+    20,
+    40,
+    20,
+    20
+  ],
+  "margin": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "background": "#050505",
+  "font": {
+    "family": "JetBrains Mono",
+    "size": 14,
+    "ligatures": true
+  },
+  "line_height": 1.2
+}
