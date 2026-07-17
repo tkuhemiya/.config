@@ -1,0 +1,11 @@
+{
+  "name": "qr-share",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "@types/qrcode": "^1.5.5"
+  }
+}
