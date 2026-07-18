@@ -1,0 +1,47 @@
+{
+  "name": "pi-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Pi extension that ports OpenCode-style MCP server support.",
+  "keywords": [
+    "pi-package",
+    "pi-extension",
+    "mcp",
+    "opencode"
+  ],
+  "scripts": {
+    "check": "tsc --noEmit && tsx test/jsdoc-check.ts",
+    "clean": "rm -rf dist",
+    "mcp-fixture": "node test/local-mcp-server.mjs",
+    "regression": "tsx test/regression.ts",
+    "smoke": "tsx test/smoke.ts",
+    "smoke:oauth": "tsx test/oauth-smoke.ts",
+    "test": "npm run check && npm run smoke && npm run smoke:oauth && npm run regression"
+  },
+  "pi": {
+    "extensions": [
+      "./src/index.ts"
+    ]
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "jsonc-parser": "^3.3.1",
+    "open": "^10.2.0"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-agent-core": "*",
+    "@earendil-works/pi-ai": "*",
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*",
+    "typebox": "*"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "^0.79.10",
+    "@types/node": "^24.10.1",
+    "tsx": "^4.20.6",
+    "typebox": "^1.0.65",
+    "typescript": "^5.9.3",
+    "zod": "^3.25.76"
+  }
+}

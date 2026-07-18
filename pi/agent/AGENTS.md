@@ -5,4 +5,5 @@
 ## Secrets and environment
 
 - **LLM provider keys** — stored in `auth.json` (managed by pi).
-- **Extension API keys** — stored in `~/.pi/agent/.env` (see `.env.example`). Extensions read these via `extensions/shared/read-env.ts`.
+- **Extension API keys** — stored in `~/.pi/agent/.env` (see `.env.example`). `extensions/load-env` loads them into `process.env` at startup; extensions can also read via `extensions/shared/read-env.ts`.
+- **MCP servers** — configured in `agent/mcp.json`. Managed by vendored `extensions/pi-mcp`. Use `/mcp-list`, `/mcp-connect context7`.

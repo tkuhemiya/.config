@@ -27,16 +27,46 @@ export function readEnvValue(name: string): string | undefined {
     );
     if (!match || match[1] !== name) continue;
 
-    const value = match[2].trim();
-    if (
-      (value.startsWith('"') && value.endsWith('"')) ||
-      (value.startsWith("'") && value.endsWith("'"))
-    ) {
-      return value.slice(1, -1);
-    }
-
-    return value.replace(/\s+#.*$/, '');
+    return parseEnvValue(match[2]);
   }
 
   return undefined;
+}
+
+function parseEnvValue(raw: string): string {
+  const value = raw.trim();
+  if (
+    (value.startsWith('"') && value.endsWith('"')) ||
+    (value.startsWith("'") && value.endsWith("'"))
+  ) {
+    return value.slice(1, -1);
+  }
+
+  return value.replace(/\s+#.*$/, '');
+}
+
+/** Load ~/.pi/agent/.env into process.env for keys not already set. */
+export function loadAgentEnvIntoProcess(): void {
+  const envPath = getAgentEnvPath();
+  let envText = '';
+
+  try {
+    envText = readFileSync(envPath, 'utf8');
+  } catch {
+    return;
+  }
+
+  for (const line of envText.split(/\r?\n/)) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+
+    const match = trimmed.match(
+      /^(?:export\s+)?([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)$/,
+    );
+    if (!match) continue;
+
+    const name = match[1];
+    if (process.env[name] !== undefined) continue;
+    process.env[name] = parseEnvValue(match[2]);
+  }
 }

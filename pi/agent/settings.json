@@ -3,9 +3,7 @@
   "defaultProvider": "opencode-go",
   "defaultModel": "deepseek-v4-flash",
   "defaultThinkingLevel": "high",
-  "packages": [
-    "npm:@upstash/context7-pi"
-  ],
+  "packages": [],
   "committee": {
     "currentProvider": "github-copilot",
     "currentModel": "gpt-5.4-mini"

@@ -25,7 +25,8 @@
     "dim": "#636363",
     "selection": "#19283c",
     "decorator": "#69b1ff",
-    "number": "#68cdf2"
+    "number": "#68cdf2",
+    "userMsgBg": "#100010"
   },
   "colors": {
     "accent": "accent",
@@ -40,7 +41,7 @@
     "text": "fg",
     "thinkingText": "fgLight",
     "selectedBg": "selection",
-    "userMessageBg": "surface",
+    "userMessageBg": "userMsgBg",
     "userMessageText": "fg",
     "customMessageBg": "overlay",
     "customMessageText": "fg",

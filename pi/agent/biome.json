@@ -6,7 +6,7 @@
     "useIgnoreFile": true
   },
   "files": {
-    "includes": ["extensions/**/*.ts"],
+    "includes": ["extensions/**/*.ts", "!extensions/pi-mcp", "!extensions/save-md"],
     "ignoreUnknown": false
   },
   "formatter": {

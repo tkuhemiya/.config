@@ -10,5 +10,6 @@
     "esModuleInterop": true,
     "verbatimModuleSyntax": true
   },
-  "include": ["extensions/**/*.ts"]
+  "include": ["extensions/**/*.ts"],
+  "exclude": ["extensions/pi-mcp", "extensions/save-md"]
 }
