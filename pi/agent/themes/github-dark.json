@@ -26,7 +26,7 @@
     "selection": "#19283c",
     "decorator": "#69b1ff",
     "number": "#68cdf2",
-    "userMsgBg": "#100010"
+    "userMsgBg": "#1f1f1f"
   },
   "colors": {
     "accent": "accent",
@@ -48,7 +48,7 @@
     "customMessageLabel": "accent",
     "toolPendingBg": "surface",
     "toolSuccessBg": "#0d1b11",
-    "toolErrorBg": "#1a0d0e",
+    "toolErrorBg": "#450106",
     "toolTitle": "accent",
     "toolOutput": "fgLight",
     "mdHeading": "heading",
