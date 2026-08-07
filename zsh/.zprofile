@@ -1,7 +1,6 @@
 
 
 export EDITOR="nvim"
-export BROWSER="chrome"
 export HISTFILE=~/.cache/zsh/.zsh_history
 export ZDOTDIR="$HOME/.config/zsh"
 
@@ -61,6 +60,7 @@ export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 export PATH="/opt/homebrew/opt/bison/bin:$PATH"
 
+export CPATH=/opt/homebrew/include
 
 # Created by `pipx` on 2026-04-12 22:53:25
 export PATH="$PATH:/Users/themiya/.local/bin"

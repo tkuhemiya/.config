@@ -57,3 +57,7 @@ command = "herdr pane resize --direction up --amount 0.1 --current"
 key = "alt+shift+l"
 type = "shell"
 command = "herdr pane resize --direction right --amount 0.1 --current"
+
+[theme]
+name = "rose-pine"
+auto_switch = false

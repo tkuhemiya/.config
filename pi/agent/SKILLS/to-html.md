@@ -1,207 +1,116 @@
 ---
 name: to-html
-description: Opinionated CSS design system with reset, spacing, shadows, gradients, layout, and typography conventions. Use when writing or reviewing CSS, designing UI components, or styling any web project.
+description: "Present model output in HTML"
 ---
 
-# CSS Design
+# Design explanatory software-system pages
 
-These are opinionated CSS/styling conventions. Apply them when writing CSS, designing UI components, or reviewing styling.
+Act as an excellent systems designer, editor, information architect, data storyteller, and design engineer. Shape the explanation and interface together. This skill is also for general model output: when a user provides notes about a software system, turn the material into a familiar visual explanation rather than a wall of prose. Build precise, calm, direct, technically literate, evidence-led surfaces for executives, engineers, and other decision-makers.
 
-## CSS Reset (Baseline)
+## First: frame the reader's job
 
-Always start with this reset:
+Inspect all supplied material before designing. Establish:
 
-```css
-/* 1. Use a more-intuitive box-sizing model */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+- Who is reading, and what must they decide or understand?
+- What is the strongest supported answer?
+- What evidence earns that answer?
+- What caveat or uncertainty could change it?
+- What must remain available for audit?
 
-/* 2. Remove default margin */
-*:not(dialog) {
-  margin: 0;
-}
+Normalize facts, units, dates, sources, formulas, contradictions, unknowns, and privacy constraints. Distinguish observation, derivation, projection, recommendation, and causation. Never invent intent, ownership, urgency, certainty, deadlines, approvals, or customer information. Ask one grouped question only if an unresolved point could change commercial, legal, security, privacy, formula, unit, population, recommendation, or deadline meaning. Otherwise omit it or label it honestly.
 
-/* 3. Enable keyword animations */
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    interpolate-size: allow-keywords;
-  }
-}
+Provide two reading speeds: an executive path through identity, headings, decisive values, captions, and conclusion; and an audit path through exact tables, assumptions, methodology, caveats, and sources. Each section must answer a new reader question. Give every claim one evidence home and avoid equal-prominence repetition.
 
-body {
-  /* 4. Increase line-height */
-  line-height: 1.5;
-  /* 5. Improve text rendering */
-  -webkit-font-smoothing: antialiased;
-}
+## Composition
 
-/* 6. Improve media defaults */
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-}
+The first viewport is the argument, not a ceremonial masthead. Choose claim-led, evidence-led, comparison-led, or tool-led composition based on the reader's job. Privately compare two materially different topologies when possible, then choose the one that makes the job clearest. Choose geometry before components:
 
-/* 7. Inherit fonts for form controls */
-input, button, textarea, select {
-  font: inherit;
-}
+- Magnitude or rank: position or length on a common scale.
+- Change over time: horizontal order and aligned position.
+- Composition: proportion.
+- Threshold or range: distance from a boundary.
+- Process or dependency: connection and sequence.
+- Qualitative alternatives: aligned rows or contrasted columns.
 
-/* 8. Avoid text overflows */
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-}
+Use tables for lookup, prose for one conclusion, and charts only for relationships that become faster to understand visually. For software-system explanations, select the visual by question: architecture diagrams for boundaries and dependencies; request-flow diagrams for direction and stages; sequence diagrams for actors and time; state diagrams for lifecycle transitions; data-flow diagrams for transformations and storage; comparison tables for interface or implementation differences; and timelines for ordered events. Keep arrows directional, label protocols or events when known, and use one consistent visual grammar. Provide a concise text alternative for every diagram. If a relationship, dependency, or ordering is unknown, show it as unknown rather than guessing. Compose as a field, with one throughline and one focal relationship per reading moment. Do not fill unsupported gaps with cards, icons, borders, or decorative charts. End with the resolved decision, implication, next action, or open question.
 
-/* 9. Improve line wrapping */
-p {
-  text-wrap: pretty;
-}
-h1, h2, h3, h4, h5, h6 {
-  text-wrap: balance;
-}
+## Integrate with the host project
 
-/*
-  10. Create a root stacking context
-*/
-#root, #__next {
-  isolation: isolate;
-}
-```
-
-## Design Principles
-
-### Text Sizing
-
-- Do **not** set custom text sizes. Derive them from `rem` to inherit the user's default font size.
-
-### Margin
-
-- **Avoid margin** — it is a side effect. Use `gap` on flex/grid containers or `padding` on parent elements instead.
-
-### Padding & Spacing
-
-- **Consistency above everything else.** Establish a spacing scale and stick to it.
-- For **grouping** related items: use spacing `< 1rem` (inside a group)
-- For **separating** distinct groups: use spacing `> 1rem` (between groups)
-- Think in terms of **groups**, separated by: size, color, padding, and sometimes shapes.
-- **Small elements** (buttons, badges, chips): use more horizontal inner padding than vertical.
-
-### Example: Writing/Reading Typography
-
-```css
-/* line-height: 1.5rem */
-/* paragraph separation: 2rem */
-/* letter-spacing: 0.12rem */
-/* word-spacing: 0.16rem */
-```
-
-### Content Width
-
-Lines of text that span the full viewport are hard to read. Use a centered fixed-width column, but allow media and custom widgets to break free (full-bleed).
-
-```css
-.wrapper {
-  display: grid;
-  grid-template-columns:
-    minmax(1rem, 1fr)
-    min(60rem, 100%)
-    minmax(1rem, 1fr);
-}
-
-.wrapper > * {
-  grid-column: 2;
-}
-
-.wrapper > .full-bleed {
-  grid-column: 1 / -1;
-}
-```
+Preserve the existing framework, routes, file structure, build system, component conventions, and output form. Do not force a framework or filename. In an existing product project, use its installed typography and semantic tokens. Otherwise load the published foundation once at the nearest report boundary:
 
 ```html
-<main class="wrapper">
-  <h1>Some Heading</h1>
-  <p>Some content and stuff</p>
-  <img/ video/ hero sections/ special widgests like diagrams class="full-bleed" alt="cute meerkat" src="/meerkat.jpg" />
-</main>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..600&family=Geist+Mono:wght@400..600&display=swap" rel="stylesheet" referrerpolicy="no-referrer">
+<link href="https://vercel.com/geist/vercel-brand.css" rel="stylesheet">
 ```
 
-Pair with disappearing sidebars at wider viewports:
+Do not read or translate the foundation into a parallel token system. Use page-owned selectors only in a custom namespace such as `vbg-custom-*`. Do not target or restyle published `.vbg-*` primitives. Do not add third-party JavaScript, charts, icons, stock imagery, analytics, or dependencies without authorization.
 
-```css
-.panel {
-  opacity: 0;
-  transition: opacity .2s, display .2s allow-discrete;
-}
-@media (min-width: 1280px) {
-  .panel { display: flex; opacity: 1; }
-  @starting-style { .panel { opacity: 0; } }
-}
+## Authorship shell
+
+Standalone pages use this direct-child order:
+
+```html
+<body class="vbg-report"><div class="vbg-shell">
+  <a class="vbg-skip-link" href="#main">Skip to content</a>
+  <header class="vbg-header"><div class="vbg-masthead">
+    <span class="vbg-identity"><span class="vbg-context">System visualization reference</span></span>
+    <div class="vbg-document-meta">...</div>
+  </div></header>
+  <main id="main">...</main>
+  <footer class="vbg-footer"><span>...</span></footer>
+</div></body>
 ```
 
-### Layering Shadows
+Keep the shell neutral. Do not add a vendor wordmark, logo, or invented authorship. Put at most two sourced metadata fields in the header and at most one sourced ownership or confidentiality line in the footer. Do not invent metadata or repeat preparation and audience as a preamble.
 
-Layer multiple shadows for natural, vibrant depth. Shadow count and spread increase with perceived elevation:
+## Visual system
 
-```css
-/* Low elevation */
-.box-low {
-  box-shadow:
-    0.5px 1px 1px hsl(220deg 60% 50% / 0.7);
-}
+Use the published CSS API and exact public token names. The shared grid is 12 columns on desktop, 6 on tablet, and 4 on mobile. Reading prose normally occupies 6–7 desktop columns; tables, calculators, charts, and comparisons may use all 12. Align objects to shared edges or baselines. Set `min-width: 0` on custom grid and flex children and reflow before shrinking.
 
-/* Medium elevation */
-.box-mid {
-  box-shadow:
-    1px 2px 2px hsl(220deg 60% 50% / 0.333),
-    2px 4px 4px hsl(220deg 60% 50% / 0.333),
-    3px 6px 6px hsl(220deg 60% 50% / 0.333);
-}
+Use Geist Sans for prose, headings, labels, controls, tables, KPIs, and numbers. Use Geist Mono only for code, paths, timestamps, raw tokens, and short operational identifiers. Use the published type roles: `vbg-display`, `vbg-title`, `vbg-heading-24`, `vbg-heading-20`, `vbg-heading-16`, `vbg-lede`, `vbg-body`, `vbg-label`, `vbg-caption`, and `vbg-meta`. Use sentence case, concrete headings, comfortable measures, tabular numerals, and relational spacing. Avoid em dashes, all-caps eyebrows, decorative numbering, arbitrary sizes, and tiny muted prose.
 
-/* High elevation */
-.box-high {
-  box-shadow:
-    1px 2px 2px hsl(220deg 60% 50% / 0.2),
-    2px 4px 4px hsl(220deg 60% 50% / 0.2),
-    4px 8px 8px hsl(220deg 60% 50% / 0.2),
-    8px 16px 16px hsl(220deg 60% 50% / 0.2),
-    16px 32px 32px hsl(220deg 60% 50% / 0.2);
-}
-```
+Design normally as one continuous monochrome canvas. Earn surfaces and borders only for interaction, warning, selection, contrast, or genuine grouping. Use `.vbg-band[data-tone="contrast"]` for contrast fields. Never use gradients, glows, blobs, textures, glass, ornamental shadows, colored rails, fake depth, decorative icons, stock imagery, or visible theme controls. Color must encode meaningful state or data and must have a non-color cue. Light and dark themes are implicit.
 
-The hue in `hsl()` should match the background color tint. More layers = higher perceived elevation.
+## Dependency-free code highlighting
 
-### Gradients
+For static code examples, use semantic `<pre><code>` and CSS-only token spans. The source must remain readable, copyable, and horizontally scrollable. Escape HTML-sensitive source characters before adding token spans. Add an explicit language label and an accessible name. Use a small token vocabulary such as `keyword`, `string`, `number`, `comment`, and `function`; do not create a color for every possible token type.
 
-HSL gradients produce overly bright and vivid midpoints because HSL doesn't account for human color perception. HCL would be better but isn't supported in CSS. Workaround: manually define intermediate color stops to avoid the unnatural mid-gradient colors.
+Use published surface, text, state, and type tokens. Color is a secondary cue, so preserve token meaning through the source text, spacing, and optional labels. Do not use automatic language detection, third-party syntax highlighters, remote scripts, or editor components for static examples. Do not wrap code character-by-character if it makes copying unreliable. Add line numbers only when the explanation refers to specific lines. Use `tab-size`, `white-space: pre`, and local overflow rather than breaking code across arbitrary lines.
 
-```css
-background-image: linear-gradient(
-  45deg,
-  hsl(240deg 100% 20%) 0%,
-  hsl(281deg 100% 21%) 8%,
-  hsl(304deg 100% 23%) 17%,
-  hsl(319deg 100% 30%) 25%,
-  hsl(329deg 100% 36%) 33%,
-  hsl(336deg 100% 41%) 42%,
-  hsl(346deg 83% 51%) 50%,
-  hsl(3deg 95% 61%) 58%,
-  hsl(17deg 100% 59%) 67%,
-  hsl(30deg 100% 55%) 75%,
-  hsl(40deg 100% 50%) 83%,
-  hsl(48deg 100% 50%) 92%,
-  hsl(55deg 100% 50%) 100%
-);
-```
+## Architectural diagrams with inline SVG
 
-These are example colors — use appropriate colors for the design, but follow the same manual-stop pattern.
+For complex software architectures, prefer a self-contained inline SVG inside a semantic `<figure>`. Use nested rounded rectangles for system boundaries, smaller rectangles for services, and orthogonal elbow paths for relationships. Put the arrowhead on the path, not in a separate decorative element. Use solid connectors for synchronous calls, dashed connectors for asynchronous events, and label protocols, events, or data only when the source supports them. Keep a consistent direction, spacing system, stroke weight, and node vocabulary. Route connectors behind or between nodes, reserve a clear label lane beside every path, and never place labels on node borders, arrowheads, or other labels. Use generous padding inside nodes so icons and text cannot collide. Validate the rendered SVG at its intended width, not only its source coordinates.
 
-### Selection
+Use a small, coherent icon vocabulary when icons reduce recognition time: browser, edge, service, queue, database, worker, and external provider. Draw simple icons as inline SVG paths or use supplied assets. Do not add arbitrary icon tiles, logos, or third-party icon kits. Icons must support the label and never carry meaning alone.
 
-Style `::selection` with something visually pleasing (avoid the default blue):
+Make diagrams responsive by using a viewBox, allowing a local horizontal scroll for genuinely wide architecture maps, and preserving readable labels. Give the SVG `role="img"`, a descriptive `<title>`, and a `<desc>` that states the topology in words. Add a concise caption that explains the line grammar and the important caveat. Provide a nearby text summary or accessible alternative when the diagram is material evidence. Use `currentColor` and published surface, border, and text tokens; never create a parallel color system. Use page-owned `vbg-viz-*` hooks for local diagram geometry only, and do not apply custom visualization classes to SVG text.
 
-```css
-::selection {
-  background: /* accent color */;
-  color: /* contrasting text */;
-}
-```
+When the input is incomplete, show an explicit boundary such as “unknown dependency” or omit the relationship. Never infer protocols, ownership, data stores, security controls, or runtime behavior from a familiar architecture pattern. Prefer one complex, legible map over many disconnected decorative cards. If a diagram has too many crossings, split it into context, container, and request-flow views.
+
+## Evidence
+
+Every chart must show units, period, population, basis, and material comparator near the evidence. Use zero baselines for length encodings unless a marked range or delta view is the honest answer. Prefer direct labels over legends. Provide a semantic table or text alternative for material chart data. Give primary proof enough size and contrast.
+
+Use a semantic full-width table with caption, head, body, and optional foot. Align numeric headers and cells right, with `class="vbg-numeric"` or `data-align="numeric"` on both. Keep units and precision consistent. Do not clip, truncate, or compress dense headers; let a long ledger scroll locally when needed.
+
+## Calculators
+
+Define one canonical state model: variables, fixed inputs, formulas, units, ranges, increments, defaults, display precision, and dependencies. Pre-render the default result. Update outputs atomically from full-precision state and format only for display. Preserve invalid input and the last valid result rather than silently clamping. Use native labelled controls, clear units, visible focus, and one concise live status. Keep the tool, controls, and focal result together. With the foundation, `.vbg-calculator` directly owns `.vbg-calculator-inputs` and `.vbg-calculator-output`; use `.vbg-field` and `.vbg-unit-field` for unit controls.
+
+## Motion, accessibility, and review
+
+Default to stillness. Motion may explain a state change or confirm an action only; respect reduced motion. Use landmarks, one descriptive `h1`, ordered headings, skip link, native controls, semantic tables, figures and captions, accessible names, visible focus, sources, caveats, and text alternatives. Never rely on color alone. Preserve readable type and source order across narrow screens and both themes.
+
+Before handoff, render the actual result when possible and inspect the first viewport, full page, light theme, dark theme, and responsive reflow. Review first read, composition, typography, evidence alignment, restraint, themes, reflow, trust, and access. Fix the highest-impact systemic defect and repeat. Deliver the implementation, not a process diary or scorecard.
+
+## Public API
+
+Layout and shell: `vbg-skip-link`, `vbg-header`, `vbg-masthead`, `vbg-identity`, `vbg-wordmark`, `vbg-document-meta`, `vbg-recipient`, `vbg-state`, `vbg-date`, `vbg-confidentiality`, `vbg-context`, `vbg-opening`, `vbg-opening-claim`, `vbg-opening-proof`, `vbg-opening-context`, `vbg-section`, `vbg-chapter`, `vbg-reading`, `vbg-flow`, `vbg-stack`, `vbg-cluster`, `vbg-grid`, `vbg-split`, `vbg-band`, `vbg-span-4`, `vbg-span-5`, `vbg-span-6`, `vbg-span-7`, `vbg-span-8`, `vbg-span-12`, `vbg-footer`, `vbg-logo`.
+
+Type and evidence: `vbg-title`, `vbg-display`, `vbg-heading-24`, `vbg-heading-20`, `vbg-heading-16`, `vbg-lede`, `vbg-label`, `vbg-meta`, `vbg-caption`, `vbg-mono`, `vbg-numeric`, `vbg-visually-hidden`, `vbg-note`, `vbg-formula`, `vbg-sources`, `vbg-stat-strip`, `vbg-stat`, `vbg-stat-label`, `vbg-stat-value`, `vbg-stat-detail`, `vbg-comparison`, `vbg-table-wrap`, `vbg-chart`, `vbg-chart-header`, `vbg-chart-viewport`, `vbg-legend`, `vbg-bar-comparison`, `vbg-bar-list`, `vbg-bar`, `vbg-bar-label`, `vbg-bar-value`, `vbg-bar-track`, `vbg-bar-fill`.
+
+Calculator: `vbg-calculator`, `vbg-calculator-inputs`, `vbg-calculator-output`, `vbg-control-group`, `vbg-field`, `vbg-unit-field`, `vbg-unit-prefix`, `vbg-unit-suffix`, `vbg-helper`, `vbg-error`, `vbg-range-ends`, `vbg-range-min`, `vbg-range-max`, `vbg-result-group`, `vbg-result`, `vbg-result-label`, `vbg-result-value`, `vbg-result-detail`, `vbg-button`.
+
+Use only documented public classes. If no primitive fits, use semantic HTML plus a page-owned `vbg-custom-*` or `vbg-viz-*` hook. For diagrams, prefer HTML and CSS layouts with a `figure`, `figcaption`, accessible text alternative, and explicit labels. Use inline SVG only when it materially improves geometry; keep SVG text readable and use only documented visualization classes for marks. Never invent `vbg-*` synonyms or inspect internal foundation selectors.

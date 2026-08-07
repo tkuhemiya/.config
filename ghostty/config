@@ -1,6 +1,8 @@
 theme = Dracula
 window-colorspace = display-p3
 background = "000000"
+#background-image = ./background.jpg
+#custom-shader = ./ghostty-shaders/terminal-mirror.glsl
 foreground = "FAE3C6"
 selection-background = "F564A9"
 selection-foreground = "FAE3C6"
@@ -22,11 +24,10 @@ macos-non-native-fullscreen = true
 
 title = " "
 
-background-opacity = 0.92
+background-opacity = 1.0
 background-opacity-cells = false
 background-blur = 40
 unfocused-split-opacity = 0.9
-#custom-shader = ./ghostty-shaders/slash.glsl
 
 quick-terminal-size = 50%,50%
 quick-terminal-position = center

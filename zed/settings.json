@@ -161,6 +161,13 @@
     "light": "Ayu Light",
     "dark": "Rose Pine",
   },
+  "lsp": {
+    "gopls": {
+      "binary": {
+        "path": "/Users/themiya/.local/share/go/bin/gopls"
+      }
+    }
+  },
   "languages": {
     "Python": {
       "language_servers": [
@@ -169,6 +176,10 @@
         "ruff",
       ],
       "format_on_save": "on",
+    },
+    "Go": {
+      "formatter": "language_server",
+      "format_on_save": "on"
     },
   },
 }

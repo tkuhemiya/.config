@@ -1,0 +1,17 @@
+{
+  "theme": {
+    "name": "system"
+  },
+  "diffs": {
+    "wrap": "word"
+  },
+  "session": {
+    "sidebar": "auto",
+    "scrollbar": true,
+    "thinking": "hide"
+  },
+  "hints": {
+    "onboarding": false
+  },
+  "animations": true
+}
