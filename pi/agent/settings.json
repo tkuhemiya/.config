@@ -1,9 +1,11 @@
 {
-  "lastChangelogVersion": "0.80.2",
-  "defaultProvider": "opencode-go",
-  "defaultModel": "deepseek-v4-flash",
+  "lastChangelogVersion": "0.81.1",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.6-luna",
   "defaultThinkingLevel": "high",
-  "packages": [],
+  "packages": [
+    "npm:@plannotator/pi-extension"
+  ],
   "committee": {
     "currentProvider": "github-copilot",
     "currentModel": "gpt-5.4-mini"
