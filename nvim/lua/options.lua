@@ -13,16 +13,20 @@ vim.api.nvim_create_autocmd("FileChangedShellPost", {
 })
 
 vim.opt.mouse = "a"
-vim.opt.wrap = true
-vim.opt.linebreak = true      -- wrap at word boundaries
+vim.opt.wrap = false          -- code stays one line; Markdown enables wrapping below
+vim.opt.linebreak = true      -- wrap at word boundaries when wrapping is enabled
 vim.opt.breakindent = true    -- preserve indent on wrapped lines
 vim.opt.scrolloff = 10
 vim.opt.undofile = true
 vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.clipboard = "unnamed,unnamedplus"
 
 -- Indentation
 vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 -- Appearance / UI
@@ -48,18 +52,18 @@ vim.opt.pummaxwidth = 80
 vim.opt.pumborder = "rounded"
 vim.opt.completeopt = { "menuone", "noinsert" }
 
--- Folding (indent by default; treesitter for specific langs)
+-- Folding is configured after Treesitter starts in lua/plugins/treesitter.lua.
 vim.opt.foldcolumn = "auto:1"
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.foldenable = true
 vim.opt.foldmethod = "indent"
 
+-- Wrap prose, but keep source code compact.
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "python", "rust", "javascript", "typescript", "lua" },
+  pattern = "markdown",
   callback = function()
-    vim.wo.foldmethod = "expr"
-    vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    vim.opt_local.wrap = true
   end,
 })
 

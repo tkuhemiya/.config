@@ -46,12 +46,6 @@ vim.keymap.set("n", "S", function()
 	local keys = vim.api.nvim_replace_termcodes(cmd, true, false, true)
 	vim.api.nvim_feedkeys(keys, "n", false)
 end, { desc = "Replace word under cursor" })
-vim.keymap.set("n", "<leader>S", function()
-	require("spectre").toggle()
-end, { desc = "Toggle Spectre" })
-vim.keymap.set("n", "<leader>sw", function()
-	require("spectre").open_visual({ select_word = true })
-end, { desc = "Spectre word under cursor" })
 map({ "n", "v", "x" }, "<C-s>", [[:s/\V]], { desc = "Literal substitution" })
 
 -- Window navigation (nvim + tmux)
@@ -87,10 +81,43 @@ map({ "n" }, "<leader>b", builtin.buffers, { desc = "Find buffers" })
 map({ "n" }, "<leader>sg", builtin.live_grep, { desc = "Live grep" })
 map({ "n" }, "<leader>si", builtin.grep_string, { desc = "Grep string under cursor" })
 map({ "n" }, "<leader>sr", builtin.lsp_references, { desc = "LSP references" })
+map({ "n" }, "<leader>ss", builtin.lsp_document_symbols, { desc = "Document symbols" })
 map({ "n" }, "<leader>sd", builtin.diagnostics, { desc = "Diagnostics" })
 map({ "n" }, "<leader>sk", builtin.keymaps, { desc = "Show keymaps" })
-map({ "n" }, "<leader>se", "<cmd>Telescope env<cr>", { desc = "Environment variables" })
-map({ "n" }, "<leader>sa", require("actions-preview").code_actions, { desc = "Code actions" })
+map({ "n", "v" }, "<leader>ca", require("actions-preview").code_actions, { desc = "Code action preview" })
+
+-- Diagnostics
+local function jump_diagnostic(count, severity)
+  local ok = pcall(vim.diagnostic.jump, {
+    count = count,
+    severity = severity,
+    float = false,
+  })
+  if ok then
+    vim.cmd("normal! zz")
+  end
+end
+
+map("n", "]d", function()
+  jump_diagnostic(1)
+end, { desc = "Next diagnostic" })
+map("n", "[d", function()
+  jump_diagnostic(-1)
+end, { desc = "Previous diagnostic" })
+map("n", "]e", function()
+  jump_diagnostic(1, vim.diagnostic.severity.ERROR)
+end, { desc = "Next error" })
+map("n", "[e", function()
+  jump_diagnostic(-1, vim.diagnostic.severity.ERROR)
+end, { desc = "Previous error" })
+map("n", "<leader>d", function()
+  vim.diagnostic.open_float({ border = "rounded" })
+end, { desc = "Open diagnostic float" })
+map("n", "<leader>ld", vim.diagnostic.setqflist, { desc = "Send diagnostics to quickfix" })
+map("n", "<leader>cn", "<Cmd>cnext<CR>zz", { desc = "Next quickfix item" })
+map("n", "<leader>cp", "<Cmd>cprevious<CR>zz", { desc = "Previous quickfix item" })
+map("n", "<leader>co", "<Cmd>copen<CR>zz", { desc = "Open quickfix" })
+map("n", "<leader>cc", "<Cmd>cclose<CR>", { desc = "Close quickfix" })
 
 -- Diffview
 map({ "n" }, "<leader>gd", "<cmd>DiffviewOpen<cr>", { desc = "Open diffview" })
@@ -113,7 +140,9 @@ end, { desc = "Show all marks (quickfix)" })
 -- Editor helpers
 map({ "n", "v", "x" }, "<leader>r", ":edit!<CR>", { desc = "Reload buffer" })
 map({ "n", "v", "x" }, "<leader>n", ":norm ", { desc = "Normal command" })
-map({ "n", "v", "x" }, "<leader>lf", vim.lsp.buf.format, { desc = "Format buffer" })
+map({ "n", "v", "x" }, "<leader>lf", function()
+	require("conform").format({ lsp_format = "fallback" })
+end, { desc = "Format buffer" })
 vim.keymap.set("v", "<", "<gv", { desc = "Indent left" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent right" })
 
@@ -131,6 +160,74 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 map({ "i", "s" }, "<C-e>", function() ls.expand_or_jump(1) end, { silent = true, desc = "Expand or jump forward" })
 map({ "i", "s" }, "<C-J>", function() ls.jump(1) end, { silent = true, desc = "Jump forward" })
 map({ "i", "s" }, "<C-K>", function() ls.jump(-1) end, { silent = true, desc = "Jump backward" })
+
+-- Treesitter text objects and incremental selection
+local function treesitter_select()
+  local has_parser = vim.treesitter.get_parser(0, nil, { error = false })
+  if not has_parser then
+    return nil
+  end
+
+  local ok, select = pcall(require, "vim.treesitter._select")
+  return ok and select or nil
+end
+
+map("n", "<C-Space>", function()
+  local select = treesitter_select()
+  if select then
+    vim.cmd.normal({ "van", bang = true })
+  else
+    vim.lsp.buf.selection_range(1)
+  end
+end, { desc = "Start incremental selection" })
+map("x", "<C-Space>", function()
+  local select = treesitter_select()
+  if select then
+    select.select_parent(vim.v.count1)
+  end
+end, { desc = "Expand Treesitter selection" })
+map("x", "<C-h>", function()
+  local select = treesitter_select()
+  if select then
+    select.select_child(vim.v.count1)
+  end
+end, { desc = "Shrink Treesitter selection" })
+
+local function treesitter_textobject(query)
+  return function()
+    require("nvim-treesitter-textobjects.select").select_textobject(query, "textobjects")
+  end
+end
+
+local function treesitter_move(method, query)
+  return function()
+    require("nvim-treesitter-textobjects.move")[method](query, "textobjects")
+  end
+end
+
+for _, object in ipairs({
+  { "aa", "@parameter.outer", "Select outer parameter" },
+  { "ia", "@parameter.inner", "Select inner parameter" },
+  { "af", "@function.outer", "Select outer function" },
+  { "if", "@function.inner", "Select inner function" },
+  { "ac", "@class.outer", "Select outer class" },
+  { "ic", "@class.inner", "Select inner class" },
+}) do
+  map({ "x", "o" }, object[1], treesitter_textobject(object[2]), { desc = object[3] })
+end
+
+for _, motion in ipairs({
+  { "]m", "goto_next_start", "@function.outer", "Next function start" },
+  { "[m", "goto_previous_start", "@function.outer", "Previous function start" },
+  { "]M", "goto_next_end", "@function.outer", "Next function end" },
+  { "[M", "goto_previous_end", "@function.outer", "Previous function end" },
+  { "]]", "goto_next_start", "@class.outer", "Next class start" },
+  { "[[", "goto_previous_start", "@class.outer", "Previous class start" },
+  { "][", "goto_next_end", "@class.outer", "Next class end" },
+  { "[]", "goto_previous_end", "@class.outer", "Previous class end" },
+}) do
+  map({ "n", "x", "o" }, motion[1], treesitter_move(motion[2], motion[3]), { desc = motion[4] })
+end
 
 -- Folding (native)
 -- zm: toggle fold under cursor recursively (zA)
@@ -161,8 +258,9 @@ function M.on_attach(client, bufnr)
 	bufmap("n", "gI", vim.lsp.buf.implementation, "Go to implementation")
 	bufmap("n", "K", vim.lsp.buf.hover, "Hover documentation")
 	bufmap("n", "<leader>rn", vim.lsp.buf.rename, "Rename symbol")
-	bufmap("n", "<leader>ca", vim.lsp.buf.code_action, "Code action")
-	bufmap("n", "<leader>lf", function() vim.lsp.buf.format({ async = true }) end, "Format buffer")
+	bufmap("n", "<leader>lf", function()
+		require("conform").format({ lsp_format = "fallback" })
+	end, "Format buffer")
 end
 
 return M

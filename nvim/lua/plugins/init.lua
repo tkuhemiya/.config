@@ -1,5 +1,6 @@
 require("plugins.treesitter")
 require("plugins.lsp")
+require("plugins.conform")
 require("plugins.mini-completion")
 require("plugins.mini-pairs")
 require("plugins.mini-icons")

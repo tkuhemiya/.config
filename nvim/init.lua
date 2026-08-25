@@ -1,9 +1,8 @@
 require("options")
+require("prelude")
 
 vim.pack.add({
 	{ src = "https://github.com/rose-pine/neovim", name = "rose-pine" },
-	{ src = "https://github.com/cseelus/vim-colors-lucid", name = "lucid" },
-	{ src = "https://github.com/nvim-pack/nvim-spectre" },
 	{ src = "https://github.com/nvim-mini/mini.nvim" },
 	{ src = "https://github.com/nvim-mini/mini.pairs" },
 	{ src = "https://github.com/chentoast/marks.nvim" },
@@ -12,20 +11,15 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
 
 	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
-	{ src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
 	{ src = "https://github.com/sindrets/diffview.nvim" },
-	{ src = "https://github.com/LinArcX/telescope-env.nvim" },
 
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
 	{ src = "https://github.com/L3MON4D3/LuaSnip" },
-	{ src = "https://github.com/nvim-neotest/nvim-nio" },
-
-	{ src = "https://github.com/mason-org/mason.nvim" },
-	{ src = "https://github.com/neovim/nvim-lspconfig" },
-	{ src = "https://github.com/mason-org/mason-lspconfig.nvim" },
-	{ src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
+	{ src = "https://github.com/stevearc/conform.nvim" },
+	{ src = "https://github.com/seblyng/roslyn.nvim" },
 	{ src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
 })
 
 require("rose-pine").setup({
