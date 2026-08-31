@@ -78,7 +78,8 @@ Each server is configured in `lsp/<name>.lua` and enabled in `init.lua` via `vim
 | Normal | `U` | Redo |
 | Normal | `Q` | Replay the last macro |
 | Normal, Visual | `H` | Move to the first non-blank character |
-| Normal, Visual | `L` | Move to the end of the line |
+| Visual | `L` | Move to the end of the line |
+| Normal | `L` | Open diagnostic float (warnings/errors under cursor) |
 | Normal | `S` | Substitute the word under the cursor |
 | Normal, Visual | `<C-s>` | Start a literal substitution |
 | Normal, Visual, Select | `<leader>r` | Reload the buffer from disk |

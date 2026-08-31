@@ -30,10 +30,11 @@ map({ "n", "x" }, "<leader>y", '"+y', { desc = "Yank to clipboard" })
 -- Quick navigation
 map('n', 'U', '<C-r>')                 -- redo
 map('n', 'Q', '@@')                    -- replay last macro
-map("n", "L", "$", { desc = "End of line" })
-map("n", "H", "^", { desc = "Start of line" })
-map({ "n", "x" }, "L", "$", { desc = "End of line" })
 map({ "n", "x" }, "H", "^", { desc = "Start of line" })
+map("x", "L", "$", { desc = "End of line" })
+map("n", "L", function()
+	vim.diagnostic.open_float({ border = "rounded" })
+end, { desc = "Open diagnostic float" })
 
 -- Search navigation (centered)
 map("n", "/", function()
