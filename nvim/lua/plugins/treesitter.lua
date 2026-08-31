@@ -32,8 +32,12 @@ vim.api.nvim_create_autocmd("FileType", {
     -- Do not download or compile while opening a file.
     local started = pcall(vim.treesitter.start, args.buf)
     if started and vim.treesitter.get_parser(args.buf, nil, { error = false }) then
-      vim.wo.foldmethod = "expr"
-      vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+      if args.match == "python" then
+        vim.wo.foldmethod = "indent"
+      else
+        vim.wo.foldmethod = "expr"
+        vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+      end
     end
   end,
 })

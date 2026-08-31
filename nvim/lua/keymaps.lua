@@ -36,6 +36,14 @@ map({ "n", "x" }, "L", "$", { desc = "End of line" })
 map({ "n", "x" }, "H", "^", { desc = "Start of line" })
 
 -- Search navigation (centered)
+map("n", "/", function()
+	local word = vim.fn.expand("<cword>")
+	if word == "" then
+		return "/"
+	end
+	return "/" .. vim.fn.escape(word, [[\/.*$^~[]])
+end, { expr = true, desc = "Search word under cursor" })
+
 vim.keymap.set("n", "n", "nzz", { desc = "Next result centered" })
 vim.keymap.set("n", "N", "Nzz", { desc = "Prev result centered" })
 --vim.keymap.set("n", "<ESC>", ":nohlsearch<CR>", { desc = "Clear highlights" })
@@ -78,7 +86,7 @@ end
 -- Telescope
 map({ "n" }, "<leader>f", builtin.find_files, { desc = "Find files" })
 map({ "n" }, "<leader>b", builtin.buffers, { desc = "Find buffers" })
-map({ "n" }, "<leader>sg", builtin.live_grep, { desc = "Live grep" })
+map({ "n" }, "<leader><leader>", builtin.live_grep, { desc = "Live grep" })
 map({ "n" }, "<leader>si", builtin.grep_string, { desc = "Grep string under cursor" })
 map({ "n" }, "<leader>sr", builtin.lsp_references, { desc = "LSP references" })
 map({ "n" }, "<leader>ss", builtin.lsp_document_symbols, { desc = "Document symbols" })
@@ -120,8 +128,7 @@ map("n", "<leader>co", "<Cmd>copen<CR>zz", { desc = "Open quickfix" })
 map("n", "<leader>cc", "<Cmd>cclose<CR>", { desc = "Close quickfix" })
 
 -- Diffview
-map({ "n" }, "<leader>gd", "<cmd>DiffviewOpen<cr>", { desc = "Open diffview" })
-map({ "n" }, "<leader>gD", diffview.review, { desc = "Code review" })
+map({ "n" }, "<leader>gD", "<cmd>DiffviewOpen<cr>", { desc = "Open diffview" })
 map({ "n" }, "<leader>gc", "<cmd>DiffviewClose<cr>", { desc = "Close diffview" })
 map({ "n" }, "<leader>gh", "<cmd>DiffviewFileHistory %<cr>", { desc = "File history (current)" })
 map({ "n" }, "<leader>gH", "<cmd>DiffviewFileHistory<cr>", { desc = "File history (repo)" })
