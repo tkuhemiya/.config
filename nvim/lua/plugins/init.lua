@@ -31,7 +31,6 @@ require("plugins.actions-preview")
 require("plugins.luasnip")
 require("plugins.diffview")
 require("plugins.lualine")
-require("plugins.render-markdown")
 
 require('marks').setup()
 

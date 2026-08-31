@@ -16,7 +16,6 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
 	{ src = "https://github.com/L3MON4D3/LuaSnip" },
 	{ src = "https://github.com/stevearc/conform.nvim" },
-	{ src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
 })
