@@ -3,7 +3,42 @@
 Leader key: `<Space>`  
 Local leader: `<Space>`
 
-This configuration targets Neovim 0.12. Plugin setup is in `lua/plugins/`, global mappings are in `lua/keymaps.lua`, and LSP mappings are added when a language server attaches.
+This configuration targets Neovim 0.12. Plugins are managed with `vim.pack`, LSP is configured natively with one file per server under `lsp/<server>.lua`, and keymaps are structured under `lua/`.
+
+## Setup & Installation
+
+### 1. Requirements
+- **Neovim 0.12+**
+- macOS (Homebrew) or Ubuntu / Debian (`apt`)
+- Language toolchains: `uv` (Python), `npm` (Node/TS), `go` (Go), `dotnet` (C#), `cargo` (Rust/Lua/TOML)
+
+### 2. Install Tools & Parsers
+Run the setup script to install all language servers, formatters, CLI dependencies, and sync Treesitter parsers:
+
+```bash
+./install.sh
+```
+
+### 3. Verify Health
+Launch Neovim and run:
+```vim
+:checkhealth vim.lsp
+```
+
+### 4. Language Server Architecture
+Each server is configured in `lsp/<name>.lua` and enabled in `init.lua` via `vim.lsp.enable({ ... })`:
+
+| Language / Domain | Language Server (LSP) | Formatter / Linter | Install Command |
+| :--- | :--- | :--- | :--- |
+| **Python** | `ty server` (`lsp/ty.lua`) | `ruff` (`lsp/ruff.lua`) | `uv tool install ty ruff` |
+| **TypeScript / JS** | `typescript-language-server` (`lsp/ts_ls.lua`) | `prettier`, `eslint` (`lsp/eslint.lua`) | `npm install -g typescript typescript-language-server vscode-langservers-extracted prettier` |
+| **Go** | `gopls` (`lsp/gopls.lua`) | `gofmt` (via conform) | `go install golang.org/x/tools/gopls@latest` |
+| **C# / .NET** | `csharp-ls` (`lsp/csharp_ls.lua`) | `csharpier` (via conform) | `dotnet tool install -g csharp-ls csharpier` |
+| **Lua** | `lua-language-server` (`lsp/lua_ls.lua`) | `stylua` (via conform) | `brew install lua-language-server stylua` / `cargo install stylua` |
+| **JSON** | `vscode-json-language-server` (`lsp/jsonls.lua`) | `prettier` (via conform) | `npm install -g vscode-langservers-extracted` |
+| **YAML** | `yaml-language-server` (`lsp/yamlls.lua`) | `prettier` (via conform) | `npm install -g yaml-language-server` |
+| **TOML** | `taplo` (`lsp/taplo.lua`) | `taplo` (via conform) | `cargo install taplo-cli --locked --features lsp` |
+
 
 ## Global mappings
 
