@@ -32,7 +32,6 @@ bindkey '^O' openFinder
 #alias ssh='ghostty +ssh --'
 alias sio='/Users/themiya/Applications/sioyek.app/Contents/MacOS/sioyek'
 alias sioyek='/Users/themiya/Applications/sioyek.app/Contents/MacOS/sioyek'
-alias k='kubectl'
 alias t='terraform'
 alias ip='ipconfig getifaddr en0'
 #alias bat='bat -p --theme TwoDark -l sh'
@@ -56,6 +55,74 @@ mkcd() {
   mkdir $1
   cd $1
 }
+# K8
+uk() {
+  unset KUBECONFIG
+  unset KUBE_NAMESPACE
+}
+
+# export kubeconfig
+ek() {
+    if [ -n "$1" ]; then
+        CONFIG=$(rg --max-depth 3 -l '^kind: Config$' $HOME/.kube/ 2>/dev/null \
+            | grep $1)
+    else
+        CONFIG=$(rg --max-depth 3 -l '^kind: Config$' $HOME/.kube/ $PWD 2>/dev/null | fzf --multi | tr '\n' ':')
+    fi
+    # echo file and remove trailing :
+    echo ${CONFIG%:*}
+    export KUBECONFIG=${CONFIG%:*}
+}
+ 
+# main k function
+k() {
+  if [ -n "$KUBE_NAMESPACE" ]; then
+      kubectl --namespace "$KUBE_NAMESPACE" $@
+  else
+      kubectl $@
+  fi
+}
+
+kn() {
+  local ns
+  if [ -n "$1" ]; then
+    ns=$(kubectl get ns -o=custom-columns=:.metadata.name --no-headers | rg "$1")
+    [ "$(echo "$ns" | wc -l)" -eq 1 ] || ns=""
+  fi
+  if [ -z "$ns" ]; then
+    ns=$(kubectl get ns -o=custom-columns=:.metadata.name --no-headers \
+          | fzf --select-1 --preview "kubectl get pods --namespace {}")
+  fi
+  export KUBE_NAMESPACE="$ns"
+}
+
+kauth() {
+  local name="$1"
+  if [ -z "$name" ]; then
+    echo "Usage: kauth <name>"
+    return 1
+  fi
+  mkdir -p "$HOME/.kube/configs"
+  cp "$HOME/.kube/config" "$HOME/.kube/configs/${name}.yaml"
+}
+
+# K8s prompt segment
+k8s_prompt_info() {
+  local ctx=""
+  local ns=""
+
+  if [ -n "$KUBECONFIG" ]; then
+    ctx=$(basename "$KUBECONFIG" | sed 's/\.ya\?ml$//')
+  fi
+
+  if [ -n "$KUBE_NAMESPACE" ]; then
+    ns="$KUBE_NAMESPACE"
+  fi
+
+  if [ -n "$ctx" ] || [ -n "$ns" ]; then
+    echo "󱃾 %F{blue}${ctx}%f${ns:+:%F{brightblue}${ns}%f} "
+  fi
+}
 
 # History
 HISTSIZE=5000
@@ -75,10 +142,13 @@ autoload -Uz vcs_info
 #zstyle ':vcs_info:git:*' formats '(%b%u)'
 zstyle ':vcs_info:git*' formats "git:(%F{red}%b%F{blue})%f "
 zstyle ':vcs_info:git:*' actionformats "git:(%F{red}%b%F{blue}|%a)%f "
-precmd() { vcs_info }
+precmd() {
+  vcs_info
+  K8S_PROMPT_INFO="$(k8s_prompt_info)"
+}
 setopt PROMPT_SUBST
 
-export PROMPT='%(?:%F{green}➜ %f:%F{red}➜ %f) %F{cyan}%c%f %F{blue}${vcs_info_msg_0_}%f'
+export PROMPT='%(?:%F{green}➜ %f:%F{red}➜ %f) %F{cyan}%c%f ${K8S_PROMPT_INFO}%F{blue}${vcs_info_msg_0_}%f'
 
 export FZF_CTRL_T_OPTS="
   --walker-skip .git,node_modules,target,venv,__pycache__
