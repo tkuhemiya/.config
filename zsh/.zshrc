@@ -16,6 +16,12 @@ source <(fzf --zsh)
 
 # Custom
 source ~/.config/zsh/func.zsh
+
+if [[ -f "$HOME/.config/pi/agent/.env" ]]; then
+  setopt allexport
+  source "$HOME/.config/pi/agent/.env"
+  unsetopt allexport
+fi
 openFinder() {
   open ./
 }

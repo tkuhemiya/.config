@@ -4,6 +4,9 @@ colima/
 raycast/
 .zsh_history
 .zcompdump
+.zcompdump.*
+zsh/.zcompdump
+zsh/.zcompdump.*
 .zsh_sessions/
 .zcompcache/
 *.mdb
@@ -14,7 +17,13 @@ docker
 
 *.log
 herdr/release-notes.json
+herdr/session.json
+herdr/*.bak*
 pi/agent/sessions/
+pi/agent/models-store.json
+pi/agent/mcp-auth.json
+pi/agent/bin/
+opencode/service.json
 
 ### Entire directories to skip (caches, machine state, generated files)
 .android/
@@ -39,7 +48,6 @@ lazygit/
 raycast/extensions/
 raycast-x/
 zsh/.zsh_history
-zsh/.zcompdump
 .wrangler
 cursor
 fish
