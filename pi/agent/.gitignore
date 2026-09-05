@@ -9,6 +9,8 @@ sessions/
 tmp/
 auth.json
 trust.json
+mcp-auth.json
+models-store.json
 
 # Environment variables and secrets
 .env

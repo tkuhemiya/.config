@@ -1,25 +1,35 @@
 # ~/.config
 
-## Tracked configs
+XDG configs for this machine. Clone this repo to `~/.config`.
 
 | Path | What it is |
 |------|------------|
-| `ghostty/` | Ghostty terminal config & GLSL shaders |
-| `tmux/` | tmux config & plugins |
-| `zed/` | Zed editor settings & themes |
-| `nvim/` | Neovim config  |
-| `zsh/` | Zsh config (.zshrc, .zshenv, .zprofile, functions) |
-| `lvim` | LunarVim config (legacy) |
-| `opencode/` | OpenCode AI editor config & skills |
-| `ripgrep/` | ripgrep config |
-| `bunfig.toml` | Bun package manager config |
-| `macos-defaults.sh` | macOS system defaults script |
-| `.gitignore` | Git ignore rules |
-
+| `nvim/` | Neovim |
+| `zsh/` | Zsh (`ZDOTDIR`) |
+| `ghostty/` | Ghostty |
+| `tmux/` | tmux |
+| `zed/` | Zed |
+| `herdr/` | Herdr (`config.toml` only) |
+| `opencode/` | OpenCode |
+| `ripgrep/` | ripgrep |
+| `bunfig.toml` | Bun |
+| `pi/` | Pi agent (symlink to `~/.pi`) |
+| `.agents/` | Agent skills |
+| `scripts/` | macOS bootstrap |
 
 ## Bootstrap
 
 ```bash
 git clone --recurse-submodules git@github.com:tkuhemiya/.config.git ~/.config
 ln -s ~/.config/pi ~/.pi
+cp ~/.pi/agent/.env.example ~/.pi/agent/.env
+```
+
+Fill in `~/.pi/agent/.env`. Zsh loads it, so OpenCode can use `{env:CONTEXT7_API_KEY}`.
+
+Then:
+
+```bash
+~/.config/scripts/setup-mac.sh
+~/.config/scripts/macos-defaults.sh
 ```
