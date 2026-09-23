@@ -8,6 +8,16 @@ local map = vim.keymap.set
 
 vim.g.mapleader = " "
 
+map("n", "K", function()
+	local bufnr = vim.api.nvim_get_current_buf()
+	for _, client in ipairs(vim.lsp.get_clients({ bufnr = bufnr })) do
+		if client:supports_method("textDocument/hover", bufnr) then
+			vim.lsp.buf.hover()
+			return
+		end
+	end
+end, { desc = "Hover documentation" })
+
 -- Buffer / window management
 map({ "n" }, "<leader>w", "<Cmd>w<CR>", { desc = "Write buffer" })
 map({ "n" }, "<leader>q", "<Cmd>q<CR>", { desc = "Close window" })
@@ -264,7 +274,6 @@ function M.on_attach(client, bufnr)
 	bufmap("n", "gd", vim.lsp.buf.definition, "Go to definition")
 	bufmap("n", "gr", vim.lsp.buf.references, "Go to references")
 	bufmap("n", "gI", vim.lsp.buf.implementation, "Go to implementation")
-	bufmap("n", "K", vim.lsp.buf.hover, "Hover documentation")
 	bufmap("n", "<leader>rn", vim.lsp.buf.rename, "Rename symbol")
 	bufmap("n", "<leader>lf", function()
 		require("conform").format({ lsp_format = "fallback" })
