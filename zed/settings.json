@@ -15,7 +15,8 @@
     "active_language_button": true
   },
   "project_panel": {
-    "button": true
+    "button": true,
+    "dock": "left"
   },
   "prettier": {
     "allowed": true
