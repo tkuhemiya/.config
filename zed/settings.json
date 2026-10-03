@@ -183,4 +183,11 @@
       "format_on_save": "on"
     },
   },
+  "file_types": {
+    "Helm": [
+      "**/templates/**/*.yaml",
+      "**/templates/**/*.yml",
+      "**/templates/**/*.tpl"
+    ]
+  },
 }

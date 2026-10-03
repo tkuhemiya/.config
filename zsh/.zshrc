@@ -74,6 +74,11 @@ ek() {
     export KUBECONFIG=${CONFIG%:*}
 }
  
+# kubectl completion
+
+autoload -Uz compinit && compinit
+source <(kubectl completion zsh)
+
 # main k function
 k() {
   if [ -n "$KUBE_NAMESPACE" ]; then
@@ -82,6 +87,17 @@ k() {
       kubectl $@
   fi
 }
+
+_k() {
+  if [[ -n "$KUBE_NAMESPACE" ]]; then
+    words=(kubectl --namespace "$KUBE_NAMESPACE" "${words[@]:2}")
+    (( CURRENT += 2 ))
+  else
+    words[1]=kubectl
+  fi
+  _kubectl
+}
+compdef _k k
 
 kn() {
   local ns
@@ -178,3 +194,6 @@ export PATH="$PATH:/Users/themiya/.local/bin"
 . "$HOME/.vite-plus/env"
 
 . "$HOME/.local/share//../bin/env"
+
+# opencode
+export PATH=/Users/themiya/.opencode/bin:$PATH
