@@ -14,6 +14,7 @@ Before acting in a situation below, read its file. Files without a path prefix s
 | Any prose a person reads, your reply included | `writing.md` |
 | Writing or changing code | `code.md`, plus `lang/<language>.md` when it exists |
 | New data shapes, stateful logic, or signatures | `types.md` |
+| Code that can fail, or handles a failure | `errors.md` |
 | Cleanup, simplification, or before handing back a diff | `refactor.md` |
 | A bug, a failing check, or a fix that didn't hold | `debug.md` |
 | Before saying a task is done | `verify.md` |

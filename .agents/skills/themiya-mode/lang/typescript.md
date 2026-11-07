@@ -28,6 +28,12 @@ Applies `types.md` and `code.md` to TypeScript.
 - When the repo uses Effect (`effect`), write effectful code as `Effect<A, E, R>` so errors and dependencies show in the type. Use `Effect.gen` for direct-style code.
 - In a repo without Effect, keep effects at the edges and return errors as values in a union. Ask before adding Effect to a repo.
 
+## Errors
+
+- With Effect: expected failures go in `E` as classes from `Data.TaggedError`. Defects use `Effect.die` or `Effect.orDie`. Wrap throwing code with `Effect.try` or `Effect.tryPromise` at the boundary.
+- Without Effect: return `{ ok: true, value } | { ok: false, error }` with `error` as a tagged union. `throw` only for defects.
+- `catch (e)` gives `unknown`. Narrow it before use, and never cast it.
+
 ## Style
 
 - Pass an object instead of several positional arguments, except on hot paths such as render loops and parsers.

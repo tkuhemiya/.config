@@ -6,6 +6,7 @@ Goal: a reader understands any function by reading only that function and the ty
 
 - Choose the simplest solution that solves the whole problem. A small diff beats an elegant one.
 - Split out a function only when the program reuses it today, or when it implements a named interface or external API. If understanding a caller means reading its helper, inline the helper. No abstraction for reuse that might come later.
+- Before writing a helper, search the repo for one that already does it. Extend the existing one instead of adding a parallel version.
 - Each layer must change the abstraction. Inline a wrapper or adapter that has one caller and no second implementation.
 - The reader test: can a new reader answer "where does X come from?" and "what can change X?" in under 30 seconds?
 - APIs are declarative. The caller states what it wants, not the steps.
