@@ -41,7 +41,6 @@ alias c='clear'
 alias vs='code ./'
 alias vi='nvim .'
 alias vs='code ./'
-alias oc='opencode2'
 alias ls='ls -G'
 alias l='ls -lAhG -S '
 alias lss='tree --level=1'
@@ -51,6 +50,7 @@ alias dk='docker'
 alias tree="erd -C auto -I -H -s name -y inverted"
 alias lg='lazygit'
 alias capp='cap && git push'
+alias cc='claude --dangerously-skip-permissions'
 mkcd() {
   mkdir $1
   cd $1
@@ -195,5 +195,3 @@ export PATH="$PATH:/Users/themiya/.local/bin"
 
 . "$HOME/.local/share//../bin/env"
 
-# opencode
-export PATH=/Users/themiya/.opencode/bin:$PATH
